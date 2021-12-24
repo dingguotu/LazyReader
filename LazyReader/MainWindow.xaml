@@ -1,0 +1,34 @@
+﻿<Window x:Class="LazyReader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LazyReader"
+        mc:Ignorable="d"
+        Height="450" 
+        Width="300" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        ShowInTaskbar="False" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" >
+            <MenuItem Height="25" Width="60" Cursor="Arrow" Header="本地文件" Click="OpenFile_Click" />
+            <MenuItem Height="25" Width="60" Cursor="Arrow" Header="在线阅读" />
+        </Menu>
+        <DataGrid Name="bookList" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserResizeRows="False" MouseDoubleClick="bookList_MouseDoubleClick">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="删除" Click="DeleteBtn_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="书名" Binding="{Binding Name}" Width="90"/>
+                <DataGridTextColumn Header="来源" Binding="{Binding BaseDomain}" Width="186"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
