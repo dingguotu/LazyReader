@@ -23,13 +23,12 @@ namespace LazyReader
     public partial class MainWindow : Window
     {
         private static string? TargetDir { get; set; }
-        private static LazyReaderContext context { get; set; }
+        private static LazyReaderContext context = LazyReaderContext.Instance;
 
         public MainWindow()
         {
             InitializeComponent();
             TargetDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Books");
-            context = LazyReaderContext.Instance;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

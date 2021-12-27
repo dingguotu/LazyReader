@@ -21,17 +21,21 @@ namespace LazyReader
     /// </summary>
     public partial class BookWindow : Window
     {
+        public static double windowHeight = 350;
+        public static double windowWidth = 530;
         public static double lineHeight = 23;
+
         public string baseDomain = string.Empty;
         public string path = string.Empty;
         public string bookName = string.Empty;
 
-        private static int rowCharCount = 0;
-        private static int pageCharCount = 0;
-        private static Stack<ReadLog> readLogs = new Stack<ReadLog>();
+        private static Stack<PageStack> pageStack = new Stack<PageStack>();
+        private static LazyReaderContext context = LazyReaderContext.Instance;
 
-        private int curBlockReadCharIndex = 0;
-        private int nextBlockReadCharIndex = 0;
+        private int rowCharCount = 0;
+        private int pageCharCount = 0;
+        private int curPageBlockIndex = 0;
+        private int nextPageBlockIndex = 0;
         private string bookText = string.Empty;
         private int bookSize = 0;
 
@@ -65,47 +69,47 @@ namespace LazyReader
                 bookSize = bookText.Length;
             }
 
-            curBlockReadCharIndex = 0;
-            nextBlockReadCharIndex = 0;
+            curPageBlockIndex = 0;
+            nextPageBlockIndex = 0;
             textBox.Text = String.Empty;
             PrintNextBlockText();
         }
 
         private void Window_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
-            if (e.Delta > 0 && curBlockReadCharIndex > 0)
+            if (e.Delta > 0 && curPageBlockIndex > 0)
             {
                 textBox.Text = String.Empty;
-                if (readLogs.Any())
+                if (pageStack.Any())
                 {
-                    var log = readLogs.Pop();
-                    curBlockReadCharIndex = log.CurPageBlockIndex;
-                    nextBlockReadCharIndex = log.CurPageBlockIndex;
+                    var item = pageStack.Pop();
+                    curPageBlockIndex = item.CurPageBlockIndex;
+                    nextPageBlockIndex = item.CurPageBlockIndex;
                     PrintNextBlockText();
                 }
                 else
                 {
-                    nextBlockReadCharIndex = curBlockReadCharIndex;
-                    curBlockReadCharIndex = nextBlockReadCharIndex - pageCharCount;
+                    nextPageBlockIndex = curPageBlockIndex;
+                    curPageBlockIndex = nextPageBlockIndex - pageCharCount;
                     PrintPrevBlockText();
                 }
             }
 
-            if (e.Delta < 0 && nextBlockReadCharIndex < bookSize)
+            if (e.Delta < 0 && nextPageBlockIndex < bookSize)
             {
                 PushReadLog();
                 textBox.Text = String.Empty;
-                curBlockReadCharIndex = nextBlockReadCharIndex;
+                curPageBlockIndex = nextPageBlockIndex;
                 PrintNextBlockText();
             }
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            nextBlockReadCharIndex = curBlockReadCharIndex;
+            nextPageBlockIndex = curPageBlockIndex;
             rowCharCount = (int)(this.ActualWidth / textBox.FontSize);
             pageCharCount = (int)((this.ActualHeight / lineHeight) * (this.ActualWidth / textBox.FontSize) * 2);
-            readLogs.Clear();
+            pageStack.Clear();
 
             if (!string.IsNullOrWhiteSpace(bookText))
             {
@@ -125,12 +129,12 @@ namespace LazyReader
                 colSb.Clear();
                 while (MeasureTextSize(colSb.ToString(), textBox).Width <= (this.ActualWidth - textBox.FontSize))
                 {
-                    if (nextBlockReadCharIndex >= bookSize)
+                    if (nextPageBlockIndex >= bookSize)
                     {
                         break;
                     }
-                    char character = bookText[nextBlockReadCharIndex];
-                    nextBlockReadCharIndex++;
+                    char character = bookText[nextPageBlockIndex];
+                    nextPageBlockIndex++;
 
                     if (character == '\r')
                     {
@@ -160,19 +164,16 @@ namespace LazyReader
 
         private void PushReadLog()
         {
-            var log = new ReadLog();
-            log.BookName = bookName;
-            log.ActiveTime = DateTime.Now;
-            log.Summary = textBox.Text[0..rowCharCount];
-            log.CurPageBlockIndex = curBlockReadCharIndex;
-            log.NextPageBlockIndex = nextBlockReadCharIndex;
-            readLogs.Push(log);
+            var item = new PageStack();
+            item.CurPageBlockIndex = curPageBlockIndex;
+            item.NextPageBlockIndex = nextPageBlockIndex;
+            pageStack.Push(item);
         }
 
         private void PrintPrevBlockText()
         {
-            curBlockReadCharIndex = curBlockReadCharIndex >= 0 ? curBlockReadCharIndex : 0;
-            string[] prevBlockText = bookText[curBlockReadCharIndex..nextBlockReadCharIndex]
+            curPageBlockIndex = curPageBlockIndex >= 0 ? curPageBlockIndex : 0;
+            string[] prevBlockText = bookText[curPageBlockIndex..nextPageBlockIndex]
                                         .ReplaceLineEndings()
                                         .Split(Environment.NewLine);
             int splitLenght = prevBlockText.Length;
@@ -193,12 +194,12 @@ namespace LazyReader
                 {
                     blockTextSplit.Add(prevBlockText[i]);
                     row += splitRow;
-                }   
+                }
             }
             string blockText = string.Join(Environment.NewLine, blockTextSplit);
-            curBlockReadCharIndex = nextBlockReadCharIndex - blockText.Length;
-            curBlockReadCharIndex = curBlockReadCharIndex >= 0 ? curBlockReadCharIndex : 0;
-            nextBlockReadCharIndex = curBlockReadCharIndex;
+            curPageBlockIndex = nextPageBlockIndex - blockText.Length;
+            curPageBlockIndex = curPageBlockIndex >= 0 ? curPageBlockIndex : 0;
+            nextPageBlockIndex = curPageBlockIndex;
             PrintNextBlockText();
         }
 
@@ -215,12 +216,13 @@ namespace LazyReader
         }
     }
 
-    public class ReadLog
+    public class PageStack
     {
         public int CurPageBlockIndex { get; set; }
         public int NextPageBlockIndex { get; set; }
-        public string? Summary { get; set; }
-        public string? BookName { get; set; }
-        public DateTime ActiveTime { get; set; }
+    }
+
+    public class ReadHistory
+    {
     }
 }
