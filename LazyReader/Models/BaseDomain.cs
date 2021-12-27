@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReadBookWPF.Model
+namespace LazyReader.Models
 {
     [Table("BaseDomain")]
     public class BaseDomain

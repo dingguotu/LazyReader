@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:LazyReader"
         mc:Ignorable="d"
         Title="BookWindow" 
-        Height="{x:Static local:BookWindow.windowHeight}" 
-        Width="{x:Static local:BookWindow.windowWidth}" 
+        DataContext="{x:Static local:BookWindow.BookWindowStyle}"
+        Height="{Binding Height}" 
+        Width="{Binding Width}" 
         AllowsTransparency="True" 
         WindowStyle="None" 
         ResizeMode="CanResizeWithGrip"
@@ -15,7 +16,10 @@
         WindowStartupLocation="CenterScreen" 
         Topmost="True" 
         MouseLeftButtonDown="Window_MouseLeftButtonDown" 
-        Loaded="Window_Loaded" PreviewMouseWheel="Window_PreviewMouseWheel" SizeChanged="Window_SizeChanged">
+        Loaded="Window_Loaded" 
+        PreviewMouseWheel="Window_PreviewMouseWheel" 
+        SizeChanged="Window_SizeChanged" 
+        MouseRightButtonDown="Window_MouseRightButtonDown">
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
             <Style.Triggers>
@@ -28,17 +32,20 @@
         </Style>
     </Window.Resources>
     <Window.Background>
-        <SolidColorBrush Opacity="0.01" Color="White" />
+        <SolidColorBrush Opacity="{Binding BackgroudOpacity}" Color="White" />
     </Window.Background>
     <Grid>
         <TextBlock 
             Name="textBox" 
-            FontSize="14"
-            FontFamily="Microsoft YaHei"
-            TextBlock.LineHeight="{x:Static local:BookWindow.lineHeight}"
+            FontSize="{Binding FontSize}"
+            FontFamily="{Binding FontFamily}"
+            LineStackingStrategy="BlockLineHeight"
+            TextBlock.LineHeight="{Binding LineHeight}"
+            Opacity="{Binding Opacity}"
             Background="Transparent"
             Cursor="Arrow"
             TextWrapping="WrapWithOverflow"
+            Padding="0 15 0 0"
         />
     </Grid>
 </Window>

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using ReadBookWPF.Model;
+using LazyReader.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
