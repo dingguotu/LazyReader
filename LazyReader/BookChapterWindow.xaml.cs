@@ -49,8 +49,9 @@ namespace LazyReader
             if (ListChapter.SelectedItem == null)
                 return;
             BookChapter chapter = (BookChapter)ListChapter.SelectedItem;
+            Book? book = context.Book.FirstOrDefault(x => x.Id.Equals(chapter.BookId));
             BookWindow bookWindow = (BookWindow)this.Owner;
-            bookWindow.GoToIndex(chapter.Index);
+            bookWindow.GoToIndex(chapter.Index, book?.BaseDomain, chapter.Path);
             this.Close();
         }
     }

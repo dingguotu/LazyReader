@@ -187,16 +187,20 @@ namespace LazyReader
             }
         }
 
-        public void GoToIndex(int index)
+        public void GoToIndex(int index, string? baseDomain, string path)
         {
             curPageBlockIndex = index;
             nextPageBlockIndex = index;
             pageStack.Clear();
 
-            if (!string.IsNullOrWhiteSpace(bookText))
+            switch (baseDomain)
             {
-                textBox.Text = String.Empty;
-                PrintNextBlockText();
+                case "本地文件":
+                    textBox.Text = String.Empty;
+                    PrintNextBlockText();
+                    break;
+                default:
+                    break;
             }
         }
 
