@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 
 namespace LazyReader.ViewModels
 {
@@ -11,10 +9,10 @@ namespace LazyReader.ViewModels
     {
         private double width = 530;
         private double height = 350;
-        private double lineHeight = 23;
+        private int lineHeight = 23;
         private double opacity = 1;
         private double backgroudOpacity = 0.01;
-        private double fontSize = 14;
+        private int fontSize = 14;
         private string? fontFamily = "Microsoft YaHei";
 
         public double Width
@@ -26,6 +24,7 @@ namespace LazyReader.ViewModels
                 OnPropertyChanged("Width", null);
             }
         }
+
         public double Height
         {
             get { return height; }
@@ -35,7 +34,8 @@ namespace LazyReader.ViewModels
                 OnPropertyChanged("Height", null);
             }
         }
-        public double LineHeight
+
+        public int LineHeight
         {
             get { return lineHeight; }
             set
@@ -44,6 +44,7 @@ namespace LazyReader.ViewModels
                 OnPropertyChanged("LineHeight", GetResizeEvent());
             }
         }
+
         public double Opacity
         {
             get { return opacity; }
@@ -53,6 +54,7 @@ namespace LazyReader.ViewModels
                 OnPropertyChanged("Opacity", null);
             }
         }
+
         public double BackgroudOpacity
         {
             get { return backgroudOpacity; }
@@ -62,7 +64,8 @@ namespace LazyReader.ViewModels
                 OnPropertyChanged("BackgroudOpacity", null);
             }
         }
-        public double FontSize
+
+        public int FontSize
         {
             get { return fontSize; }
             set
@@ -71,6 +74,7 @@ namespace LazyReader.ViewModels
                 OnPropertyChanged("FontSize", GetResizeEvent());
             }
         }
+
         public string? FontFamily
         {
             get { return fontFamily; }
@@ -111,14 +115,52 @@ namespace LazyReader.ViewModels
                 PropertyChanged(this, e);
             }
 
-            if (resizeEvent != null && (
-                PropertyName == "FontSize" ||
-                PropertyName == "FontFamily" ||
-                PropertyName == "LineHeight"))
+            if (resizeEvent != null)
             {
                 resizeEvent();
             }
         }
         #endregion
+
+        public static void SaveToFile(BookWindowStyleVM BookWindowStyle)
+        {
+            string directory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Settings");
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+            string settingFile = Path.Combine(directory, "BookWindowStyle.json");
+            if (!File.Exists(settingFile))
+            {
+                File.Create(settingFile).Close();
+            }
+            using (StreamWriter sw = new StreamWriter(settingFile, false))
+            {
+                string json = JsonSerializer.Serialize(BookWindowStyle);
+                sw.WriteLine(json);
+                sw.Close();
+            }
+        }
+
+        public static BookWindowStyleVM ReadFile()
+        {
+            string styleJson = string.Empty;
+            string stylePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Settings", "BookWindowStyle.json");
+            if (File.Exists(stylePath))
+            {
+                using (StreamReader stream = File.OpenText(stylePath))
+                {
+                    styleJson = stream.ReadToEnd();
+                }
+            }
+            if (!string.IsNullOrWhiteSpace(styleJson))
+            {
+                return JsonSerializer.Deserialize<BookWindowStyleVM>(styleJson);
+            }
+            else
+            {
+                return new BookWindowStyleVM();
+            }
+        }
     }
 }

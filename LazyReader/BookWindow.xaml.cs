@@ -5,16 +5,10 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LazyReader
 {
@@ -24,9 +18,6 @@ namespace LazyReader
     public partial class BookWindow : Window
     {
         public static BookWindowStyleVM BookWindowStyle { get; set; }
-        //public static double windowHeight = 250;
-        //public static double windowWidth = 430;
-        //public static double lineHeight = 23;
 
         public string baseDomain = string.Empty;
         public string path = string.Empty;
@@ -45,20 +36,7 @@ namespace LazyReader
         public BookWindow()
         {
             InitializeComponent();
-            BookWindowStyle = new BookWindowStyleVM();
-            string styleJson = string.Empty;
-            string stylePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Settings", "BookWindowStyle.json");
-            if (File.Exists(stylePath))
-            {
-                using (StreamReader stream = File.OpenText(stylePath))
-                {
-                    styleJson = stream.ReadToEnd();
-                }
-            }
-            if (!string.IsNullOrWhiteSpace(styleJson))
-            {
-                BookWindowStyle = JsonSerializer.Deserialize<BookWindowStyleVM>(styleJson);
-            }
+            BookWindowStyle = BookWindowStyleVM.ReadFile();            
             BookWindowStyle.ResizeEvent += new BookWindowStyleVM.ResizeWindowEventHandle(ReloadBlockText);
 
             this.DataContext = BookWindowStyle;
@@ -139,22 +117,7 @@ namespace LazyReader
         {
             BookWindowStyle.Width = e.NewSize.Width;
             BookWindowStyle.Height = e.NewSize.Height;
-            string directory = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Settings");
-            if (!Directory.Exists(directory))
-            {
-                Directory.CreateDirectory(directory);
-            }
-            string settingFile = System.IO.Path.Combine(directory, "BookWindowStyle.json");
-            if (!File.Exists(settingFile))
-            {
-                File.Create(settingFile).Close();
-            }
-            using (StreamWriter sw = new StreamWriter(settingFile, false))
-            {
-                string json = JsonSerializer.Serialize(BookWindow.BookWindowStyle);
-                sw.WriteLine(json);
-                sw.Close();
-            }
+            BookWindowStyleVM.SaveToFile(BookWindowStyle);
 
             ReloadBlockText();
         }

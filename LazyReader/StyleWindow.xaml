@@ -11,13 +11,13 @@
         Title="StyleWindow" Height="434" Width="230" Loaded="Window_Loaded" Closed="Window_Closed">
     <Grid>
         <Label Content="字体大小：" HorizontalAlignment="Left" Margin="15,6,0,0" VerticalAlignment="Top"/>
-        <Slider Value="{Binding FontSize}" Margin="85,10,10,0" VerticalAlignment="Top" SmallChange="2" Maximum="100" LargeChange="10"/>
+        <Slider Value="{Binding FontSize}" Margin="85,10,10,0" VerticalAlignment="Top" SmallChange="2" Maximum="100" LargeChange="10" AutoToolTipPlacement="TopLeft" IsSnapToTickEnabled="True"/>
         <Label Content="行间距：" HorizontalAlignment="Left" Margin="27,36,0,0" VerticalAlignment="Top"/>
-        <Slider Value="{Binding LineHeight}" Margin="85,40,10,0" VerticalAlignment="Top" SmallChange="1" Maximum="100" LargeChange="10"/>
+        <Slider Value="{Binding LineHeight}" Margin="85,40,10,0" VerticalAlignment="Top" SmallChange="1" Maximum="100" LargeChange="10" AutoToolTipPlacement="TopLeft" IsSnapToTickEnabled="True"/>
         <Label Content="背景透明度：" HorizontalAlignment="Left" Margin="3,66,0,0" VerticalAlignment="Top"/>
-        <Slider Value="{Binding BackgroudOpacity}" Margin="85,70,10,0" VerticalAlignment="Top" SmallChange="0.01" Maximum="1" LargeChange="0.1" Minimum="0.01"/>
+        <Slider Value="{Binding BackgroudOpacity}" Margin="85,70,10,0" VerticalAlignment="Top" SmallChange="0.01" Maximum="1" LargeChange="0.1" Minimum="0.01" AutoToolTipPlacement="TopLeft" TickFrequency="0.01" IsSnapToTickEnabled="True"/>
         <Label Content="文字透明度：" HorizontalAlignment="Left" Margin="3,96,0,0" VerticalAlignment="Top"/>
-        <Slider Value="{Binding Opacity}" Margin="85,100,10,0" VerticalAlignment="Top" SmallChange="0.01" Maximum="1" LargeChange="0.1" Minimum="0.01"/>
+        <Slider Value="{Binding Opacity}" Margin="85,100,10,0" VerticalAlignment="Top" SmallChange="0.01" Maximum="1" LargeChange="0.1" Minimum="0.01" AutoToolTipPlacement="TopLeft" TickFrequency="0.01" IsSnapToTickEnabled="True"/>
         <Label Content="字  体：" HorizontalAlignment="Left" Margin="32,126,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="fonts" Margin="85,128,10,0" VerticalAlignment="Top" SelectionChanged="fonts_SelectionChanged"/>
 

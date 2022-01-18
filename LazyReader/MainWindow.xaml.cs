@@ -1,19 +1,10 @@
-﻿using Microsoft.Win32;
-using LazyReader.Models;
+﻿using LazyReader.Models;
+using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 
 namespace LazyReader
 {
@@ -97,6 +88,8 @@ namespace LazyReader
 
         private async void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (bookList.SelectedItem == null)
+                return;
             Book book = (Book)bookList.SelectedItem;
             context.Book.Remove(book);
             await context.SaveChangesAsync();
@@ -105,6 +98,8 @@ namespace LazyReader
 
         private async void bookList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            if (bookList.SelectedItem == null)
+                return;
             Book book = (Book)bookList.SelectedItem;
             OpenBook(book.BaseDomain, book.Name, book.Path);
             book.LastReadTime = DateTime.Now;

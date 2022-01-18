@@ -1,11 +1,7 @@
-﻿using Microsoft.Data.Sqlite;
+﻿using LazyReader.Models;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using LazyReader.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LazyReader
 {
