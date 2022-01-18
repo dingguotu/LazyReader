@@ -1,14 +1,20 @@
-﻿using LazyReader.ViewModels;
+﻿using LazyReader.Models;
+using LazyReader.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using UtfUnknown;
 
 namespace LazyReader
 {
@@ -19,9 +25,7 @@ namespace LazyReader
     {
         public static BookWindowStyleVM BookWindowStyle { get; set; }
 
-        public string baseDomain = string.Empty;
-        public string path = string.Empty;
-        public string bookName = string.Empty;
+        public Book book = new Book();
 
         private static Stack<PageStack> pageStack = new Stack<PageStack>();
         private static LazyReaderContext context = LazyReaderContext.Instance;
@@ -60,7 +64,7 @@ namespace LazyReader
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            switch (baseDomain)
+            switch (book.BaseDomain)
             {
                 case "本地文件":
                     ReadFile();
@@ -70,18 +74,34 @@ namespace LazyReader
             }
         }
 
-        private void ReadFile()
+        private async void ReadFile()
         {
-            using (StreamReader stream = File.OpenText(path))
-            {
-                bookText = stream.ReadToEnd();
-                bookSize = bookText.Length;
-            }
+            Encoding encoding = CharsetDetector.DetectFromFile(book.Path).Detected.Encoding;
+            bookText = File.ReadAllText(book.Path, encoding).ReplaceLineEndings().Replace($"{Environment.NewLine}{Environment.NewLine}", Environment.NewLine);
+            bookSize = bookText.Length;
 
             curPageBlockIndex = 0;
             nextPageBlockIndex = 0;
             textBox.Text = String.Empty;
             PrintNextBlockText();
+            await LoadFileChapter();
+        }
+
+        private async Task LoadFileChapter()
+        {
+            List<BookChapter> bookChapters = new List<BookChapter>();
+            Regex reg = new Regex("\\s第(.{0,20})(章|回|话)(.*?)" + Environment.NewLine);
+            MatchCollection mcs = reg.Matches(bookText);
+            foreach (Match mc in mcs)
+            {
+                var chapter = new BookChapter();
+                chapter.BookId = book.Id;
+                chapter.Index = mc.Index + 1;
+                chapter.ChapterName = mc.Value.ReplaceLineEndings("").Trim();
+                chapter.Path = book.Path;
+                bookChapters.Add(chapter);
+            }
+            await context.AddRangeAsync(bookChapters);
         }
 
         private void Window_PreviewMouseWheel(object sender, MouseWheelEventArgs e)

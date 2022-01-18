@@ -31,5 +31,10 @@ namespace LazyReader
         {
             BookWindowStyleVM.SaveToFile(BookWindow.BookWindowStyle);
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

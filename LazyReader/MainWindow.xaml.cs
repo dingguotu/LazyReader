@@ -43,32 +43,33 @@ namespace LazyReader
                 string sourcePath = fileDialog.FileName;
                 string fileName = Path.GetFileName(sourcePath);
                 CopyFileToDir(fileName, sourcePath);
+                Book book = new Book()
+                {
+                    Name = fileName,
+                    BaseDomain = baseDomain,
+                    Path = Path.Combine("Books", fileName),
+                    LastReadTime = DateTime.Now,
+                };
 
                 if (!context.Book.Any(x => fileName.Equals(x.Name) && baseDomain.Equals(x.BaseDomain)))
                 {
-                    context.Book.Add(new Book()
-                    {
-                        Name = fileName,
-                        BaseDomain = baseDomain,
-                        Path = Path.Combine("Books", fileName),
-                        LastReadTime = DateTime.Now,
-                    });
+                    context.Book.Add(book);
+
                     await context.SaveChangesAsync();
                 }
 
-                OpenBook(baseDomain, fileName, Path.Combine("Books", fileName));
+                OpenBook(book);
             }
         }
 
-        private void OpenBook(string baseDomain, string fileName, string path)
+        private void OpenBook(Book book)
         {
             BookWindow bookWindow = new BookWindow();
-            bookWindow.baseDomain = baseDomain;
-            bookWindow.path = path;
-            bookWindow.bookName = fileName;
+            bookWindow.book = book;
             bookWindow.Show();
+            bookWindow.Owner = this;
 
-            this.Close();
+            this.Hide();
         }
 
         public void CopyFileToDir(string fileName, string sourcePath)
@@ -101,7 +102,7 @@ namespace LazyReader
             if (bookList.SelectedItem == null)
                 return;
             Book book = (Book)bookList.SelectedItem;
-            OpenBook(book.BaseDomain, book.Name, book.Path);
+            OpenBook(book);
             book.LastReadTime = DateTime.Now;
             context.Book.Update(book);
             await context.SaveChangesAsync();

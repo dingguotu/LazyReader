@@ -48,7 +48,7 @@ namespace LazyReader
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Book>().HasKey(t => new { t.Name, t.BaseDomain });
+            modelBuilder.Entity<BookChapter>().HasKey(t => new { t.BookId, t.Index });
             base.OnModelCreating(modelBuilder);
         }
 
@@ -58,7 +58,8 @@ namespace LazyReader
             base.OnConfiguring(options);
         }
 
-        public DbSet<BaseDomain> BaseDomain { set; get; }
+        //public DbSet<BaseDomain> BaseDomain { set; get; }
         public DbSet<Book> Book { set; get; }
+        public DbSet<BookChapter> BookChapter { set; get; }
     }
 }

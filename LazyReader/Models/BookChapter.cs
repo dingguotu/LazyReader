@@ -8,17 +8,14 @@ using System.Threading.Tasks;
 
 namespace LazyReader.Models
 {
-    [Table("Book")]
-    public class Book
+    [Table("BookChapter")]
+    public class BookChapter
     {
-        [Key]
-        public Guid Id { get; set; }
-        [Required]
-        public string Name { get; set; } = "";
-        [Required]
-        public string BaseDomain { get; set; } = "";
-        [Required]
+        [Key, Column(Order = 1)]
+        public Guid BookId { get; set; }
+        [Key, Column(Order = 2)]
+        public int Index { get; set; }
+        public string ChapterName { get; set; } = "";
         public string Path { get; set; } = "";
-        public DateTime LastReadTime { get; set; }
     }
 }
