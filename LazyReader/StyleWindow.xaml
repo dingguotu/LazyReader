@@ -8,7 +8,7 @@
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         DataContext="{x:Static local:BookWindow.BookWindowStyle}"
-        Title="StyleWindow" Height="434" Width="230" Loaded="Window_Loaded" Closed="Window_Closed">
+        Title="StyleWindow" Height="434" Width="230" Loaded="Window_Loaded" Closed="Window_Closed" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
         <Label Content="字体大小：" HorizontalAlignment="Left" Margin="15,6,0,0" VerticalAlignment="Top"/>
         <Slider Value="{Binding FontSize}" Margin="85,10,10,0" VerticalAlignment="Top" SmallChange="2" Maximum="100" LargeChange="10"/>
