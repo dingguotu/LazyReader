@@ -8,18 +8,20 @@
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         DataContext="{x:Static local:BookWindow.BookWindowStyle}"
-        Title="StyleWindow" Height="434" Width="230" Loaded="Window_Loaded" Closed="Window_Closed" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="StyleSettings" Height="282" Width="230" Loaded="Window_Loaded" Closed="Window_Closed" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
-        <Label Content="字体大小：" HorizontalAlignment="Left" Margin="15,6,0,0" VerticalAlignment="Top"/>
-        <Slider Value="{Binding FontSize}" Margin="85,10,10,0" VerticalAlignment="Top" SmallChange="2" Maximum="100" LargeChange="10" AutoToolTipPlacement="TopLeft" IsSnapToTickEnabled="True"/>
-        <Label Content="行间距：" HorizontalAlignment="Left" Margin="27,36,0,0" VerticalAlignment="Top"/>
-        <Slider Value="{Binding LineHeight}" Margin="85,40,10,0" VerticalAlignment="Top" SmallChange="1" Maximum="100" LargeChange="10" AutoToolTipPlacement="TopLeft" IsSnapToTickEnabled="True"/>
-        <Label Content="背景透明度：" HorizontalAlignment="Left" Margin="3,66,0,0" VerticalAlignment="Top"/>
-        <Slider Value="{Binding BackgroudOpacity}" Margin="85,70,10,0" VerticalAlignment="Top" SmallChange="0.01" Maximum="1" LargeChange="0.1" Minimum="0.01" AutoToolTipPlacement="TopLeft" TickFrequency="0.01" IsSnapToTickEnabled="True"/>
-        <Label Content="文字透明度：" HorizontalAlignment="Left" Margin="3,96,0,0" VerticalAlignment="Top"/>
-        <Slider Value="{Binding Opacity}" Margin="85,100,10,0" VerticalAlignment="Top" SmallChange="0.01" Maximum="1" LargeChange="0.1" Minimum="0.01" AutoToolTipPlacement="TopLeft" TickFrequency="0.01" IsSnapToTickEnabled="True"/>
-        <Label Content="字  体：" HorizontalAlignment="Left" Margin="32,126,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="fonts" Margin="85,128,10,0" VerticalAlignment="Top" SelectionChanged="fonts_SelectionChanged"/>
-
+        <Label Content="字  体：" HorizontalAlignment="Left" Margin="32,8,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="fonts" Margin="85,10,43,0" VerticalAlignment="Top" SelectionChanged="fonts_SelectionChanged"/>
+        <Button Name="BtnDefaultFont" Content="默认" HorizontalAlignment="Left" Margin="192,11,0,0" VerticalAlignment="Top" Click="BtnDefaultFont_Click"/>
+        <Label Content="字体大小：" HorizontalAlignment="Left" Margin="15,44,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="fontSize" HorizontalAlignment="Left" Margin="85,46,0,0" VerticalAlignment="Top" Width="102" SelectionChanged="fontSize_SelectionChanged"/>
+        <Button Name="BtnDefaultFontSize" Content="默认" HorizontalAlignment="Left" Margin="192,47,0,0" VerticalAlignment="Top" Click="BtnDefaultFontSize_Click"/>
+        <Label Content="行间距：" HorizontalAlignment="Left" Margin="27,80,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="lineHeight" HorizontalAlignment="Left" Margin="85,82,0,0" VerticalAlignment="Top" Width="102" SelectionChanged="lineHeight_SelectionChanged"/>
+        <Button Name="BtnDefaultLineHeight" Content="默认" HorizontalAlignment="Left" Margin="192,83,0,0" VerticalAlignment="Top" Click="BtnDefaultLineHeight_Click"/>
+        <Label Content="背景透明度：" HorizontalAlignment="Left" Margin="3,115,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.534,0.257"/>
+        <Slider Value="{Binding BackgroudOpacity}" Margin="85,119,10,0" VerticalAlignment="Top" SmallChange="0.01" Maximum="1" LargeChange="0.1" Minimum="0.01" AutoToolTipPlacement="TopLeft" TickFrequency="0.01" IsSnapToTickEnabled="True" RenderTransformOrigin="0.489,1.382"/>
+        <Label Content="文字透明度：" HorizontalAlignment="Left" Margin="3,150,0,0" VerticalAlignment="Top"/>
+        <Slider Value="{Binding Opacity}" Margin="85,154,10,0" VerticalAlignment="Top" SmallChange="0.01" Maximum="1" LargeChange="0.1" Minimum="0.01" AutoToolTipPlacement="TopLeft" TickFrequency="0.01" IsSnapToTickEnabled="True"/>
     </Grid>
 </Window>

@@ -9,7 +9,7 @@
         Width="300" 
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen" 
-        ShowInTaskbar="False" Loaded="Window_Loaded">
+        ShowInTaskbar="False" Activated="Window_Activated">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -17,7 +17,6 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" >
             <MenuItem Height="25" Width="60" Cursor="Arrow" Header="本地文件" Click="OpenFile_Click" />
-            <MenuItem Height="25" Width="60" Cursor="Arrow" Header="在线阅读" />
         </Menu>
         <DataGrid Name="bookList" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" CanUserResizeRows="False" MouseDoubleClick="bookList_MouseDoubleClick">
             <DataGrid.ContextMenu>

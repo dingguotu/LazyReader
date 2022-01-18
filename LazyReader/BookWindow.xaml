@@ -19,7 +19,7 @@
         Loaded="Window_Loaded" 
         PreviewMouseWheel="Window_PreviewMouseWheel" 
         SizeChanged="Window_SizeChanged" 
-        MouseRightButtonDown="Window_MouseRightButtonDown">
+        MouseRightButtonDown="Window_MouseRightButtonDown" Closing="Window_Closing">
     <Window.Resources>
         <Style TargetType="{x:Type TextBox}">
             <Style.Triggers>

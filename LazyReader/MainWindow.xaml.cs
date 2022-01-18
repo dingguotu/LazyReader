@@ -22,7 +22,7 @@ namespace LazyReader
             TargetDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Books");
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Activated(object sender, EventArgs e)
         {
             bookList.ItemsSource = context.Book.OrderByDescending(x => x.LastReadTime).ToList();
         }
@@ -45,7 +45,7 @@ namespace LazyReader
                 CopyFileToDir(fileName, sourcePath);
                 Book book = new Book()
                 {
-                    Name = fileName,
+                    Name = Path.GetFileNameWithoutExtension(sourcePath),
                     BaseDomain = baseDomain,
                     Path = Path.Combine("Books", fileName),
                     LastReadTime = DateTime.Now,

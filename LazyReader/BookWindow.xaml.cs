@@ -7,14 +7,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using UtfUnknown;
 
 namespace LazyReader
@@ -29,6 +28,7 @@ namespace LazyReader
         public Book book = new Book();
 
         private static Stack<PageStack> pageStack = new Stack<PageStack>();
+        private static List<ReadHistoryVM> readHistories = new List<ReadHistoryVM>();
         private static LazyReaderContext context = LazyReaderContext.Instance;
 
         private int rowCharCount = 0;
@@ -55,16 +55,27 @@ namespace LazyReader
         private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             Point point = this.PointToScreen(Mouse.GetPosition(this));
-            StyleWindow styleWindow = new StyleWindow();
-            styleWindow.Topmost = true;
-            styleWindow.WindowStartupLocation = WindowStartupLocation.Manual;
-            styleWindow.Top = point.Y - styleWindow.Height;
-            styleWindow.Left = point.X;
-            styleWindow.Show();
+            ToolWindow toolWindow = new ToolWindow();
+            toolWindow.Topmost = true;
+            toolWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            toolWindow.Top = point.Y;
+            toolWindow.Left = point.X;
+            toolWindow.Owner = this;
+            ToolWindow.book = book;
+            toolWindow.Show();
+
+            //StyleWindow styleWindow = new StyleWindow();
+            //styleWindow.Topmost = true;
+            //styleWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            //styleWindow.Top = point.Y - styleWindow.Height;
+            //styleWindow.Left = point.X;
+            //styleWindow.Owner = this;
+            //styleWindow.Show();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadReadHistory();
             switch (book.BaseDomain)
             {
                 case "本地文件":
@@ -73,36 +84,6 @@ namespace LazyReader
                 default:
                     break;
             }
-        }
-
-        private async void ReadFile()
-        {
-            Encoding encoding = CharsetDetector.DetectFromFile(book.Path).Detected.Encoding;
-            bookText = File.ReadAllText(book.Path, encoding).ReplaceLineEndings().Replace($"{Environment.NewLine}{Environment.NewLine}", Environment.NewLine);
-            bookSize = bookText.Length;
-
-            curPageBlockIndex = 0;
-            nextPageBlockIndex = 0;
-            textBox.Text = String.Empty;
-            PrintNextBlockText();
-            await LoadFileChapter();
-        }
-
-        private async Task LoadFileChapter()
-        {
-            List<BookChapter> bookChapters = new List<BookChapter>();
-            Regex reg = new Regex("\\s第(.{0,20})(章|回|话)(.*?)" + Environment.NewLine);
-            MatchCollection mcs = reg.Matches(bookText);
-            foreach (Match mc in mcs)
-            {
-                var chapter = new BookChapter();
-                chapter.BookId = book.Id;
-                chapter.Index = mc.Index + 1;
-                chapter.ChapterName = mc.Value.ReplaceLineEndings("").Trim();
-                chapter.Path = book.Path;
-                bookChapters.Add(chapter);
-            }
-            await context.AddRangeAsync(bookChapters);
         }
 
         private void Window_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
@@ -143,6 +124,55 @@ namespace LazyReader
             ReloadBlockText();
         }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            SaveReadHistory();
+        }
+
+        /// <summary>
+        /// 加载本地文件
+        /// </summary>
+        private async void ReadFile()
+        {
+            Encoding encoding = CharsetDetector.DetectFromFile(book.Path).Detected.Encoding;
+            bookText = File.ReadAllText(book.Path, encoding).ReplaceLineEndings().Replace($"{Environment.NewLine}{Environment.NewLine}", Environment.NewLine);
+            bookSize = bookText.Length;
+
+            nextPageBlockIndex = curPageBlockIndex;
+            textBox.Text = String.Empty;
+            PrintNextBlockText();
+            await LoadFileChapter();
+        }
+
+        /// <summary>
+        /// 解析txt文件中的章节信息
+        /// </summary>
+        /// <returns></returns>
+        private async Task LoadFileChapter()
+        {
+            if (context.BookChapter.Any(x => x.BookId == book.Id))
+            {
+                return;
+            }
+            List<BookChapter> bookChapters = new List<BookChapter>();
+            Regex reg = new Regex("\\s第(.{0,20})(章|回|话)(.*?)" + Environment.NewLine);
+            MatchCollection mcs = reg.Matches(bookText);
+            foreach (Match mc in mcs)
+            {
+                var chapter = new BookChapter();
+                chapter.BookId = book.Id;
+                chapter.Index = mc.Index + 1;
+                chapter.Title = mc.Value.ReplaceLineEndings("").Trim();
+                chapter.Path = book.Path;
+                bookChapters.Add(chapter);
+            }
+            await context.BookChapter.AddRangeAsync(bookChapters);
+            await context.SaveChangesAsync();
+        }
+
+        /// <summary>
+        /// 重新加载文字
+        /// </summary>
         private void ReloadBlockText()
         {
             nextPageBlockIndex = curPageBlockIndex;
@@ -157,6 +187,22 @@ namespace LazyReader
             }
         }
 
+        public void GoToIndex(int index)
+        {
+            curPageBlockIndex = index;
+            nextPageBlockIndex = index;
+            pageStack.Clear();
+
+            if (!string.IsNullOrWhiteSpace(bookText))
+            {
+                textBox.Text = String.Empty;
+                PrintNextBlockText();
+            }
+        }
+
+        /// <summary>
+        /// 绘制当前页
+        /// </summary>
         private void PrintNextBlockText()
         {
             double row = 1;
@@ -199,8 +245,18 @@ namespace LazyReader
                 row++;
             }
             textBox.Text = sb.ToString();
+            readHistories.Add(new ReadHistoryVM()
+            {
+                Path = book.Path,
+                CurPageBlockIndex = curPageBlockIndex,
+                Summary = textBox.Text[..40],
+                ReadTime = DateTime.Now,
+            });
         }
 
+        /// <summary>
+        /// 翻页记录
+        /// </summary>
         private void PushReadLog()
         {
             var item = new PageStack();
@@ -209,6 +265,9 @@ namespace LazyReader
             pageStack.Push(item);
         }
 
+        /// <summary>
+        /// 绘制上一页
+        /// </summary>
         private void PrintPrevBlockText()
         {
             curPageBlockIndex = curPageBlockIndex >= 0 ? curPageBlockIndex : 0;
@@ -242,6 +301,12 @@ namespace LazyReader
             PrintNextBlockText();
         }
 
+        /// <summary>
+        /// 计算文字大小
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="textBlock"></param>
+        /// <returns></returns>
         public Size MeasureTextSize(string text, TextBlock textBlock)
         {
             FormattedText ft = new FormattedText(text,
@@ -253,15 +318,64 @@ namespace LazyReader
                                                  1);
             return new Size(ft.Width, ft.Height);
         }
+
+        /// <summary>
+        /// 加载阅读记录
+        /// </summary>
+        private void LoadReadHistory()
+        {
+            string json = string.Empty;
+            string historyPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Histories", $"{book.Name}.json");
+            if (File.Exists(historyPath))
+            {
+                json = File.ReadAllText(historyPath);
+
+                BookReadHistoryVM history = JsonSerializer.Deserialize<BookReadHistoryVM>(json);
+                curPageBlockIndex = history.LastReadTime;
+                readHistories.AddRange(history.ReadHistories);
+            }
+        }
+
+        /// <summary>
+        /// 保存阅读记录
+        /// </summary>
+        private void SaveReadHistory()
+        {
+            var history = new BookReadHistoryVM
+            {
+                Title = book.Name,
+                BaseDomain = book.BaseDomain,
+                Path = book.Path,
+                LastReadTime = readHistories.LastOrDefault().CurPageBlockIndex,
+                ReadHistories = readHistories
+            };
+
+            var options = new JsonSerializerOptions()
+            {
+                WriteIndented = true,
+                Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+                AllowTrailingCommas = true,
+                NumberHandling = JsonNumberHandling.AllowReadingFromString
+            };
+            string json = JsonSerializer.Serialize(history, options);
+            byte[] bytes = Encoding.UTF8.GetBytes(json);
+
+            string directory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Histories");
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+            string historyPath = Path.Combine(directory, $"{book.Name}.json");
+            FileStream fs = File.Open(historyPath, FileMode.OpenOrCreate);
+            fs.Write(bytes, 0, bytes.Length);
+            fs.Close();
+            fs.Dispose();
+        }
     }
 
     public class PageStack
     {
         public int CurPageBlockIndex { get; set; }
         public int NextPageBlockIndex { get; set; }
-    }
-
-    public class ReadHistory
-    {
     }
 }

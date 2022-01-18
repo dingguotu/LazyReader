@@ -14,11 +14,11 @@ namespace LazyReader.Models
         [Key]
         public Guid Id { get; set; }
         [Required]
-        public string Name { get; set; } = "";
+        public string Name { get; set; }
         [Required]
-        public string BaseDomain { get; set; } = "";
+        public string BaseDomain { get; set; }
         [Required]
-        public string Path { get; set; } = "";
+        public string Path { get; set; }
         public DateTime LastReadTime { get; set; }
     }
 }

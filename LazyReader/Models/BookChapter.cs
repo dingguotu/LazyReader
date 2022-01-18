@@ -15,7 +15,7 @@ namespace LazyReader.Models
         public Guid BookId { get; set; }
         [Key, Column(Order = 2)]
         public int Index { get; set; }
-        public string ChapterName { get; set; } = "";
+        public string Title { get; set; }
         public string Path { get; set; } = "";
     }
 }
