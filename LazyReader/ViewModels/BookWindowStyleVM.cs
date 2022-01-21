@@ -129,7 +129,7 @@ namespace LazyReader.ViewModels
             {
                 Directory.CreateDirectory(directory);
             }
-            string settingFile = Path.Combine(directory, "BookWindowStyle.json");
+            string settingFile = Path.Combine(directory, "StyleSettings.json");
             if (!File.Exists(settingFile))
             {
                 File.Create(settingFile).Close();
@@ -145,7 +145,7 @@ namespace LazyReader.ViewModels
         public static BookWindowStyleVM ReadFile()
         {
             string styleJson = string.Empty;
-            string stylePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Settings", "BookWindowStyle.json");
+            string stylePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Settings", "StyleSettings.json");
             if (File.Exists(stylePath))
             {
                 using (StreamReader stream = File.OpenText(stylePath))
