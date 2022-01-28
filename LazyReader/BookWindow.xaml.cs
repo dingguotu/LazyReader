@@ -26,9 +26,9 @@ namespace LazyReader
         public static BookWindowStyleVM BookWindowStyle { get; set; }
 
         public Book book = new Book();
+        public List<ReadHistoryVM> ReadHistories { get; set; }
 
         private static Stack<PageStack> pageStack = new Stack<PageStack>();
-        private static List<ReadHistoryVM> readHistories = new List<ReadHistoryVM>();
         private static LazyReaderContext context = LazyReaderContext.Instance;
 
         private int rowCharCount = 0;
@@ -45,6 +45,7 @@ namespace LazyReader
             BookWindowStyle.ResizeEvent += new BookWindowStyleVM.ResizeWindowEventHandle(ReloadBlockText);
 
             this.DataContext = BookWindowStyle;
+            ReadHistories = new List<ReadHistoryVM>();
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -63,14 +64,6 @@ namespace LazyReader
             toolWindow.Owner = this;
             ToolWindow.book = book;
             toolWindow.Show();
-
-            //StyleWindow styleWindow = new StyleWindow();
-            //styleWindow.Topmost = true;
-            //styleWindow.WindowStartupLocation = WindowStartupLocation.Manual;
-            //styleWindow.Top = point.Y - styleWindow.Height;
-            //styleWindow.Left = point.X;
-            //styleWindow.Owner = this;
-            //styleWindow.Show();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -249,11 +242,11 @@ namespace LazyReader
                 row++;
             }
             textBox.Text = sb.ToString();
-            readHistories.Add(new ReadHistoryVM()
+            ReadHistories.Add(new ReadHistoryVM()
             {
                 Path = book.Path,
                 CurPageBlockIndex = curPageBlockIndex,
-                Summary = textBox.Text[..40],
+                Summary = textBox.Text[..40].ReplaceLineEndings(""),
                 ReadTime = DateTime.Now,
             });
         }
@@ -335,8 +328,8 @@ namespace LazyReader
                 json = File.ReadAllText(historyPath);
 
                 BookReadHistoryVM history = JsonSerializer.Deserialize<BookReadHistoryVM>(json);
-                curPageBlockIndex = history.LastReadTime;
-                readHistories.AddRange(history.ReadHistories);
+                curPageBlockIndex = history.LastReadIndex;
+                ReadHistories.AddRange(history.ReadHistories);
             }
         }
 
@@ -350,8 +343,8 @@ namespace LazyReader
                 Title = book.Name,
                 BaseDomain = book.BaseDomain,
                 Path = book.Path,
-                LastReadTime = readHistories.LastOrDefault().CurPageBlockIndex,
-                ReadHistories = readHistories
+                LastReadIndex = ReadHistories.LastOrDefault().CurPageBlockIndex,
+                ReadHistories = ReadHistories
             };
 
             var options = new JsonSerializerOptions()

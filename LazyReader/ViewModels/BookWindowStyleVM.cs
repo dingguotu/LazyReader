@@ -2,6 +2,9 @@
 using System.ComponentModel;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Windows;
+using System.Windows.Media;
 
 namespace LazyReader.ViewModels
 {
@@ -14,6 +17,9 @@ namespace LazyReader.ViewModels
         private double backgroudOpacity = 0.01;
         private int fontSize = 14;
         private string? fontFamily = "Microsoft YaHei";
+        private FontWeight fontWeight = FontWeights.Normal;
+        private FontStyle fontStyle = FontStyles.Normal;
+        private SolidColorBrush brush = new SolidColorBrush(Colors.Black);
 
         public double Width
         {
@@ -85,6 +91,62 @@ namespace LazyReader.ViewModels
             }
         }
 
+        public FontWeight FontWeight
+        {
+            get { return fontWeight; }
+            set
+            {
+                fontWeight = value;
+                OnPropertyChanged("FontWeight", GetResizeEvent());
+            }
+        }
+
+        public FontStyle FontStyle
+        {
+            get { return fontStyle; }
+            set
+            {
+                fontStyle = value;
+                OnPropertyChanged("FontStyle", GetResizeEvent());
+            }
+        }
+
+        [JsonIgnore]
+        public bool IsBold
+        {
+            get
+            {
+                return FontWeight == FontWeights.Bold;
+            }
+            set
+            {
+                FontWeight = value ? FontWeights.Bold : FontWeights.Normal;
+            }
+        }
+
+        [JsonIgnore]
+        public bool IsItalic
+        {
+            get
+            {
+                return FontStyle == FontStyles.Italic;
+            }
+            set
+            {
+                FontStyle = value ? FontStyles.Italic : FontStyles.Normal;
+            }
+        }
+
+        public SolidColorBrush Brush
+        {
+            get { return brush; }
+            set
+            {
+                brush = value;
+                OnPropertyChanged("Brush", null);
+            }
+        }
+
         #region 属性变化通知事件
         public delegate void ResizeWindowEventHandle();
         public event ResizeWindowEventHandle? ResizeEvent;
@@ -136,7 +198,14 @@ namespace LazyReader.ViewModels
             }
             using (StreamWriter sw = new StreamWriter(settingFile, false))
             {
-                string json = JsonSerializer.Serialize(BookWindowStyle);
+                var options = new JsonSerializerOptions()
+                {
+                    WriteIndented = true,
+                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+                    AllowTrailingCommas = true,
+                    NumberHandling = JsonNumberHandling.AllowReadingFromString
+                };
+                string json = JsonSerializer.Serialize(BookWindowStyle, options);
                 sw.WriteLine(json);
                 sw.Close();
             }

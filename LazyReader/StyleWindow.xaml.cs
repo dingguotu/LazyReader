@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Linq;
+using Egorozh.ColorPicker.Dialog;
 
 namespace LazyReader
 {
@@ -66,6 +67,19 @@ namespace LazyReader
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ColorPickerDialog colorPicker = new ColorPickerDialog()
+            {
+                Color = BookWindow.BookWindowStyle.Brush.Color
+            };
+            colorPicker.Topmost = true;
+            if (colorPicker.ShowDialog().GetValueOrDefault())
+            {
+                BookWindow.BookWindowStyle.Brush = new SolidColorBrush(colorPicker.Color);
+            }
         }
     }
 }

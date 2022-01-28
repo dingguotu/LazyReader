@@ -11,7 +11,7 @@ namespace LazyReader.ViewModels
         public string Title { get; set; }
         public string BaseDomain { get; set; }
         public string Path { get; set; }
-        public int LastReadTime { get; set; }
+        public int LastReadIndex { get; set; }
         public List<ReadHistoryVM> ReadHistories { get; set; }
     }
 

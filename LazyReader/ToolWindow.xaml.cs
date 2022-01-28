@@ -60,5 +60,32 @@ namespace LazyReader
             bookChapterWindow.Show();
             this.Close();
         }
+
+        private void BtnReadLog_Click(object sender, RoutedEventArgs e)
+        {
+            ReadLogWindow.BookName = book.Name;
+            ReadLogWindow.BookId = book.Id;
+            ReadLogWindow.ReadHistories = ((BookWindow)this.Owner).ReadHistories;
+            ReadLogWindow readLogWindow = new ReadLogWindow();
+            readLogWindow.Topmost = true;
+            readLogWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            readLogWindow.Top = this.Top;
+            readLogWindow.Left = this.Left;
+            readLogWindow.Owner = this.Owner;
+            readLogWindow.Show();
+            this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            StyleWindow styleWindow = new StyleWindow();
+            styleWindow.Topmost = true;
+            styleWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            styleWindow.Top = this.Top;
+            styleWindow.Left = this.Left;
+            styleWindow.Owner = this.Owner;
+            styleWindow.Show();
+            this.Close();
+        }
     }
 }
