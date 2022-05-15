@@ -4,18 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LazyReader"
+        xmlns:enums="clr-namespace:LazyReader.Enums"
+        xmlns:viewmodels="clr-namespace:LazyReader.ViewModels" 
+        xmlns:converters="clr-namespace:LazyReader.Converters"
+        DataContext="{x:Static local:BookWindow.BookWindowStyle}"
         mc:Ignorable="d"
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         Title="" Height="450" Width="230" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Window.Resources>
+        <converters:Enum2BoolConverter x:Key="EnumToBoolConverter"/>
+    </Window.Resources>
     <Grid>
         <Button Name="BtnMain" Content="返回首页" HorizontalContentAlignment="Left" Margin="10,10,10,0" BorderBrush="{x:Null}" Background="{x:Null}" Height="19" VerticalAlignment="Top" Click="BtnMain_Click"/>
         <Separator Margin="10,34,0,0" Height="1" VerticalAlignment="Top"/>
+        
         <Label Content="当前在读书籍的" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Foreground="#FF8A5947"/>
         <Button Name="BtnChapter" Content="> 章节目录" HorizontalContentAlignment="Left" Margin="10,65,10,0" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF8A5947" Height="19" VerticalAlignment="Top" Click="BtnChapter_Click"/>
         <Button Name="BtnReadLog" Content="> 阅读历史" HorizontalContentAlignment="Left" Margin="10,84,10,0" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF8A5947" Height="19" VerticalAlignment="Top" Click="BtnReadLog_Click"/>
         <Separator Margin="10,104,0,0" Height="1" VerticalAlignment="Top"/>
+        
         <Button Content="文字设置：字体、大小、透明" HorizontalContentAlignment="Left" Margin="10,105,10,0" BorderBrush="{x:Null}" Background="{x:Null}" Height="19" VerticalAlignment="Top" Click="Button_Click"/>
+        <Separator Margin="10,124,0,0" Height="1" VerticalAlignment="Top"/>
+
+        <RadioButton Content="保持文字一直显示" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" GroupName="group1" IsChecked="{Binding TextDisplay, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static enums:TextDisplayEnum.Normal}}"/>
+        <RadioButton Content="鼠标离开时文字隐藏，移上时显示" HorizontalAlignment="Left" Margin="10,149,0,0" VerticalAlignment="Top" GroupName="group1" IsChecked="{Binding TextDisplay, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static enums:TextDisplayEnum.MoveUp}}"/>
+        <RadioButton Content="鼠标离开时文字隐藏，双击时显示" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" GroupName="group1" IsChecked="{Binding TextDisplay, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static enums:TextDisplayEnum.Dblclick}}"/>
+        <Separator Margin="10,187,0,0" Height="1" VerticalAlignment="Top"/>
+        
         <Separator Margin="10,0,0,34" Height="1" VerticalAlignment="Bottom"/>
         <Button Name="BtnClose" Content="退出" HorizontalContentAlignment="Left" Margin="10,0,10,10" BorderBrush="{x:Null}" Background="{x:Null}" Height="19" VerticalAlignment="Bottom" Click="BtnClose_Click"/>
     </Grid>

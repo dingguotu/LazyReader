@@ -73,12 +73,12 @@ namespace LazyReader
         {
             ColorPickerDialog colorPicker = new ColorPickerDialog()
             {
-                Color = BookWindow.BookWindowStyle.Brush.Color
+                Color = (Color)ColorConverter.ConvertFromString(BookWindow.BookWindowStyle.Brush)
             };
             colorPicker.Topmost = true;
             if (colorPicker.ShowDialog().GetValueOrDefault())
             {
-                BookWindow.BookWindowStyle.Brush = new SolidColorBrush(colorPicker.Color);
+                BookWindow.BookWindowStyle.Brush = colorPicker.Color.ToString();
             }
         }
     }

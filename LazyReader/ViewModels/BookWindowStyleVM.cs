@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LazyReader.Enums;
+using System;
 using System.ComponentModel;
 using System.IO;
 using System.Text.Json;
@@ -19,7 +20,8 @@ namespace LazyReader.ViewModels
         private string? fontFamily = "Microsoft YaHei";
         private FontWeight fontWeight = FontWeights.Normal;
         private FontStyle fontStyle = FontStyles.Normal;
-        private SolidColorBrush brush = new SolidColorBrush(Colors.Black);
+        private string? brush = new SolidColorBrush(Colors.Black).ToString();
+        private TextDisplayEnum textDisplay = TextDisplayEnum.Normal;
 
         public double Width
         {
@@ -27,7 +29,7 @@ namespace LazyReader.ViewModels
             set
             {
                 width = value;
-                OnPropertyChanged("Width", null);
+                OnPropertyChanged("Width", null, null);
             }
         }
 
@@ -37,7 +39,7 @@ namespace LazyReader.ViewModels
             set
             {
                 height = value;
-                OnPropertyChanged("Height", null);
+                OnPropertyChanged("Height", null, null);
             }
         }
 
@@ -47,7 +49,7 @@ namespace LazyReader.ViewModels
             set
             {
                 lineHeight = value;
-                OnPropertyChanged("LineHeight", GetResizeEvent());
+                OnPropertyChanged("LineHeight", GetResizeEvent(), null);
             }
         }
 
@@ -57,7 +59,7 @@ namespace LazyReader.ViewModels
             set
             {
                 opacity = value;
-                OnPropertyChanged("Opacity", null);
+                OnPropertyChanged("Opacity", null, null);
             }
         }
 
@@ -67,7 +69,7 @@ namespace LazyReader.ViewModels
             set
             {
                 backgroudOpacity = value;
-                OnPropertyChanged("BackgroudOpacity", null);
+                OnPropertyChanged("BackgroudOpacity", null, null);
             }
         }
 
@@ -77,7 +79,7 @@ namespace LazyReader.ViewModels
             set
             {
                 fontSize = value;
-                OnPropertyChanged("FontSize", GetResizeEvent());
+                OnPropertyChanged("FontSize", GetResizeEvent(), null);
             }
         }
 
@@ -87,31 +89,32 @@ namespace LazyReader.ViewModels
             set
             {
                 fontFamily = value;
-                OnPropertyChanged("FontFamily", GetResizeEvent());
+                OnPropertyChanged("FontFamily", GetResizeEvent(), null);
             }
         }
 
+        [JsonIgnore]
         public FontWeight FontWeight
         {
             get { return fontWeight; }
             set
             {
                 fontWeight = value;
-                OnPropertyChanged("FontWeight", GetResizeEvent());
+                OnPropertyChanged("FontWeight", GetResizeEvent(), null);
             }
         }
 
+        [JsonIgnore]
         public FontStyle FontStyle
         {
             get { return fontStyle; }
             set
             {
                 fontStyle = value;
-                OnPropertyChanged("FontStyle", GetResizeEvent());
+                OnPropertyChanged("FontStyle", GetResizeEvent(), null);
             }
         }
 
-        [JsonIgnore]
         public bool IsBold
         {
             get
@@ -124,7 +127,6 @@ namespace LazyReader.ViewModels
             }
         }
 
-        [JsonIgnore]
         public bool IsItalic
         {
             get
@@ -137,19 +139,35 @@ namespace LazyReader.ViewModels
             }
         }
 
-        public SolidColorBrush Brush
+        public string Brush
         {
             get { return brush; }
             set
             {
-                brush = value;
-                OnPropertyChanged("Brush", null);
+                brush = value.ToString();
+                OnPropertyChanged("Brush", null, null);
+            }
+        }
+
+        public TextDisplayEnum TextDisplay
+        {
+            get
+            {
+                return textDisplay;
+            }
+            set
+            {
+                textDisplay = value;
+                OnPropertyChanged("TextDisplay", null, GetTextDisplayChangeEvent());
+                SaveToFile(this);
             }
         }
 
         #region 属性变化通知事件
         public delegate void ResizeWindowEventHandle();
         public event ResizeWindowEventHandle? ResizeEvent;
+        public delegate void TextDisplayChangeEventHandle();
+        public event TextDisplayChangeEventHandle? TextDisplayChangeEvent;
         public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>
@@ -169,7 +187,12 @@ namespace LazyReader.ViewModels
             return ResizeEvent;
         }
 
-        public void OnPropertyChanged(string PropertyName, ResizeWindowEventHandle? resizeEvent)
+        public TextDisplayChangeEventHandle? GetTextDisplayChangeEvent()
+        {
+            return TextDisplayChangeEvent;
+        }
+
+        public void OnPropertyChanged(string PropertyName, ResizeWindowEventHandle? resizeEvent, TextDisplayChangeEventHandle? textDisplayChangeEvent)
         {
             PropertyChangedEventArgs e = new PropertyChangedEventArgs(PropertyName);
             if (PropertyChanged != null)
@@ -180,6 +203,11 @@ namespace LazyReader.ViewModels
             if (resizeEvent != null)
             {
                 resizeEvent();
+            }
+
+            if (textDisplayChangeEvent != null)
+            {
+                textDisplayChangeEvent();
             }
         }
         #endregion

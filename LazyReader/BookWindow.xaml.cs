@@ -43,8 +43,10 @@ namespace LazyReader
             InitializeComponent();
             BookWindowStyle = BookWindowStyleVM.ReadFile();            
             BookWindowStyle.ResizeEvent += new BookWindowStyleVM.ResizeWindowEventHandle(ReloadBlockText);
+            BookWindowStyle.TextDisplayChangeEvent += new BookWindowStyleVM.TextDisplayChangeEventHandle(ReloadMouseEvent);
 
             this.DataContext = BookWindowStyle;
+            ReloadMouseEvent();
             ReadHistories = new List<ReadHistoryVM>();
         }
 
@@ -178,6 +180,39 @@ namespace LazyReader
                 textBox.Text = String.Empty;
                 PrintNextBlockText();
             }
+        }
+
+        private void ReloadMouseEvent()
+        {
+            this.MouseLeave -= new MouseEventHandler(HiddenText);
+            this.MouseEnter -= new MouseEventHandler(ShowText);
+            this.MouseDoubleClick -= new MouseButtonEventHandler(ShowText);
+            switch (BookWindowStyle.TextDisplay)
+            {
+                case Enums.TextDisplayEnum.Normal:
+                    textBox.Opacity = BookWindowStyle.Opacity;
+                    break;
+                case Enums.TextDisplayEnum.MoveUp:
+                    this.MouseLeave += new MouseEventHandler(HiddenText);
+                    this.MouseEnter += new MouseEventHandler(ShowText);
+                    break;
+                case Enums.TextDisplayEnum.Dblclick:
+                    this.MouseLeave += new MouseEventHandler(HiddenText);
+                    this.MouseDoubleClick += new MouseButtonEventHandler(ShowText);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void HiddenText(object sender, MouseEventArgs args)
+        {
+            textBox.Opacity = 0;
+        }
+
+        private void ShowText(object sender, MouseEventArgs args)
+        {
+            textBox.Opacity = BookWindowStyle.Opacity;
         }
 
         public void GoToIndex(int index, string? baseDomain, string path)
