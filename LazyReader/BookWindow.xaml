@@ -11,10 +11,9 @@
         Width="{Binding Width}" 
         AllowsTransparency="True" 
         WindowStyle="None" 
-        ResizeMode="CanResizeWithGrip"
-        ShowInTaskbar="False" 
+        ShowInTaskbar="{Binding ShowInTaskbar}" 
         WindowStartupLocation="CenterScreen" 
-        Topmost="True" 
+        Topmost="{Binding Topmost}" 
         MouseLeftButtonDown="Window_MouseLeftButtonDown" 
         Loaded="Window_Loaded" 
         PreviewMouseWheel="Window_PreviewMouseWheel" 
@@ -34,8 +33,13 @@
     <Window.Background>
         <SolidColorBrush Opacity="{Binding BackgroudOpacity}" Color="White" />
     </Window.Background>
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="10"/>
+    </WindowChrome.WindowChrome>
     <Grid>
+        <Border Margin="0" Background="Transparent" CornerRadius="5"/>
         <TextBlock 
+            WindowChrome.IsHitTestVisibleInChrome="True"
             Name="textBox" 
             FontSize="{Binding FontSize}"
             FontFamily="{Binding FontFamily}"
@@ -48,7 +52,8 @@
             Background="Transparent"
             Cursor="Arrow"
             TextWrapping="WrapWithOverflow"
-            Padding="0 15 0 0"
+            Padding="0 0 0 0"
+            Margin="3"
         />
     </Grid>
 </Window>

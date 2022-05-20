@@ -22,6 +22,8 @@ namespace LazyReader.ViewModels
         private FontStyle fontStyle = FontStyles.Normal;
         private string? brush = new SolidColorBrush(Colors.Black).ToString();
         private TextDisplayEnum textDisplay = TextDisplayEnum.Normal;
+        private bool showInTaskbar = false;
+        private bool topmost = true;
 
         public double Width
         {
@@ -159,6 +161,32 @@ namespace LazyReader.ViewModels
             {
                 textDisplay = value;
                 OnPropertyChanged("TextDisplay", null, GetTextDisplayChangeEvent());
+                SaveToFile(this);
+            }
+        }
+
+        public bool ShowInTaskbar
+        {
+            get
+            {
+                return showInTaskbar;
+            }
+            set
+            {
+                showInTaskbar = value;
+                SaveToFile(this);
+            }
+        }
+
+        public bool Topmost
+        {
+            get
+            {
+                return topmost;
+            }
+            set
+            {
+                topmost = value;
                 SaveToFile(this);
             }
         }
