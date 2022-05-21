@@ -43,7 +43,6 @@ namespace LazyReader
             InitializeComponent();
             BookWindowStyle = BookWindowStyleVM.ReadFile();            
             BookWindowStyle.ResizeEvent += new BookWindowStyleVM.ResizeWindowEventHandle(ReloadBlockText);
-            BookWindowStyle.TextDisplayChangeEvent += new BookWindowStyleVM.TextDisplayChangeEventHandle(ReloadMouseEvent);
 
             this.DataContext = BookWindowStyle;
             ReloadMouseEvent();
@@ -57,6 +56,10 @@ namespace LazyReader
 
         private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
+            this.MouseLeave -= new MouseEventHandler(HiddenText);
+            this.MouseEnter -= new MouseEventHandler(ShowText);
+            this.MouseDoubleClick -= new MouseButtonEventHandler(ShowText);
+
             Point point = this.PointToScreen(Mouse.GetPosition(this));
             ToolWindow toolWindow = new ToolWindow();
             toolWindow.Topmost = true;
@@ -183,11 +186,8 @@ namespace LazyReader
             }
         }
 
-        private void ReloadMouseEvent()
+        public void ReloadMouseEvent()
         {
-            this.MouseLeave -= new MouseEventHandler(HiddenText);
-            this.MouseEnter -= new MouseEventHandler(ShowText);
-            this.MouseDoubleClick -= new MouseButtonEventHandler(ShowText);
             switch (BookWindowStyle.TextDisplay)
             {
                 case Enums.TextDisplayEnum.Normal:
@@ -202,6 +202,9 @@ namespace LazyReader
                     this.MouseDoubleClick += new MouseButtonEventHandler(ShowText);
                     break;
                 default:
+                    this.MouseLeave -= new MouseEventHandler(HiddenText);
+                    this.MouseEnter -= new MouseEventHandler(ShowText);
+                    this.MouseDoubleClick -= new MouseButtonEventHandler(ShowText);
                     break;
             }
         }

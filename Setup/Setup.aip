@@ -42,39 +42,9 @@
     <ROW Directory="ProgramMenuFolder" Directory_Parent="TARGETDIR" DefaultDir="PROGRA~1|ProgramMenuFolder" IsPseudoRoot="1"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
     <ROW Directory="Tinko168_Dir" Directory_Parent="ProgramMenuFolder" DefaultDir="Tinko168"/>
-    <ROW Directory="alpinex64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="ALPINE~1|alpine-x64"/>
-    <ROW Directory="linuxarm64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~2|linux-arm64"/>
-    <ROW Directory="linuxarm_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~1|linux-arm"/>
-    <ROW Directory="linuxarmel_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~3|linux-armel"/>
-    <ROW Directory="linuxmips64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~4|linux-mips64"/>
-    <ROW Directory="linuxmuslx64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~5|linux-musl-x64"/>
-    <ROW Directory="linuxs390x_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~6|linux-s390x"/>
-    <ROW Directory="linuxx64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~7|linux-x64"/>
-    <ROW Directory="linuxx86_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~8|linux-x86"/>
-    <ROW Directory="native_17_Dir" Directory_Parent="linuxarm_Dir" DefaultDir="native"/>
-    <ROW Directory="native_18_Dir" Directory_Parent="linuxarm64_Dir" DefaultDir="native"/>
-    <ROW Directory="native_19_Dir" Directory_Parent="linuxarmel_Dir" DefaultDir="native"/>
-    <ROW Directory="native_20_Dir" Directory_Parent="linuxmips64_Dir" DefaultDir="native"/>
-    <ROW Directory="native_21_Dir" Directory_Parent="linuxmuslx64_Dir" DefaultDir="native"/>
-    <ROW Directory="native_22_Dir" Directory_Parent="linuxs390x_Dir" DefaultDir="native"/>
-    <ROW Directory="native_23_Dir" Directory_Parent="linuxx64_Dir" DefaultDir="native"/>
-    <ROW Directory="native_24_Dir" Directory_Parent="linuxx86_Dir" DefaultDir="native"/>
-    <ROW Directory="native_25_Dir" Directory_Parent="osxarm64_Dir" DefaultDir="native"/>
-    <ROW Directory="native_26_Dir" Directory_Parent="osxx64_Dir" DefaultDir="native"/>
-    <ROW Directory="native_27_Dir" Directory_Parent="winarm_Dir" DefaultDir="native"/>
-    <ROW Directory="native_28_Dir" Directory_Parent="winarm64_Dir" DefaultDir="native"/>
-    <ROW Directory="native_29_Dir" Directory_Parent="winx64_Dir" DefaultDir="native"/>
-    <ROW Directory="native_30_Dir" Directory_Parent="winx86_Dir" DefaultDir="native"/>
-    <ROW Directory="native_31_Dir" Directory_Parent="win7x64_Dir" DefaultDir="native"/>
-    <ROW Directory="native_32_Dir" Directory_Parent="win7x86_Dir" DefaultDir="native"/>
-    <ROW Directory="native_Dir" Directory_Parent="alpinex64_Dir" DefaultDir="native"/>
-    <ROW Directory="osxarm64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="OSX-AR~1|osx-arm64"/>
-    <ROW Directory="osxx64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="osx-x64"/>
+    <ROW Directory="native_13_Dir" Directory_Parent="winx64_Dir" DefaultDir="native"/>
+    <ROW Directory="native_14_Dir" Directory_Parent="winx86_Dir" DefaultDir="native"/>
     <ROW Directory="runtimes_Dir" Directory_Parent="APPDIR" DefaultDir="runtimes"/>
-    <ROW Directory="win7x64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win7-x64"/>
-    <ROW Directory="win7x86_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win7-x86"/>
-    <ROW Directory="winarm64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="WIN-AR~1|win-arm64"/>
-    <ROW Directory="winarm_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win-arm"/>
     <ROW Directory="winx64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win-x64"/>
     <ROW Directory="winx86_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win-x86"/>
   </COMPONENT>
@@ -82,128 +52,80 @@
     <ROW Component="AI_CustomARPName" ComponentId="{310E46E7-D78B-4B57-83BF-BCDA86A820D3}" Directory_="APPDIR" Attributes="260" KeyPath="DisplayName" Options="1"/>
     <ROW Component="AI_ExePath" ComponentId="{F9B02C06-71E8-4377-81FB-EA78140A3D8D}" Directory_="APPDIR" Attributes="260" KeyPath="AI_ExePath"/>
     <ROW Component="APPDIR" ComponentId="{7D01B4B5-C45B-488D-A11F-A3DCDD29456E}" Directory_="APPDIR" Attributes="0"/>
-    <ROW Component="Egorozh.ColorPicker.Core.dll" ComponentId="{EEA63884-8285-4A07-AC8E-D63B826ECA75}" Directory_="APPDIR" Attributes="0" KeyPath="Egorozh.ColorPicker.Core.dll"/>
-    <ROW Component="Egorozh.ColorPicker.WPF.Dialog.dll" ComponentId="{0D43F245-56FA-4D35-BFDE-DA9DD4411384}" Directory_="APPDIR" Attributes="0" KeyPath="Egorozh.ColorPicker.WPF.Dialog.dll"/>
-    <ROW Component="Egorozh.ColorPicker.WPF.dll" ComponentId="{80B4F63E-D6A6-48B2-A26D-E6A8A13426C1}" Directory_="APPDIR" Attributes="0" KeyPath="Egorozh.ColorPicker.WPF.dll"/>
+    <ROW Component="Egorozh.ColorPicker.Core.dll" ComponentId="{AAAA1F87-3DCF-42C6-8F6A-891BBC280111}" Directory_="APPDIR" Attributes="0" KeyPath="Egorozh.ColorPicker.Core.dll"/>
+    <ROW Component="Egorozh.ColorPicker.WPF.Dialog.dll" ComponentId="{E01B2B47-4732-4898-ACDE-F811FA56676E}" Directory_="APPDIR" Attributes="0" KeyPath="Egorozh.ColorPicker.WPF.Dialog.dll"/>
+    <ROW Component="Egorozh.ColorPicker.WPF.dll" ComponentId="{A320BEB7-B485-4A75-97D5-5C80E9D485FC}" Directory_="APPDIR" Attributes="0" KeyPath="Egorozh.ColorPicker.WPF.dll"/>
     <ROW Component="LazyReader" ComponentId="{9329FC19-4150-4A54-AA73-D4325EF2C03A}" Directory_="LazyReader_Dir" Attributes="0"/>
-    <ROW Component="LazyReader.deps.json" ComponentId="{F95CD290-6BDB-4684-8592-0FF4EB301865}" Directory_="APPDIR" Attributes="0" KeyPath="LazyReader.deps.json" Type="0"/>
-    <ROW Component="LazyReader.dll" ComponentId="{A66AC94D-B802-41CD-BCD8-B4A7D7843165}" Directory_="APPDIR" Attributes="0" KeyPath="LazyReader.dll"/>
-    <ROW Component="LazyReader.exe" ComponentId="{EB260C0A-079E-416A-8629-AFDF9EA281C2}" Directory_="APPDIR" Attributes="256" KeyPath="LazyReader.exe"/>
-    <ROW Component="Microsoft.Data.Sqlite.dll" ComponentId="{5A0F06CA-88D3-4301-A1EA-A3FF44B0C539}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Data.Sqlite.dll"/>
-    <ROW Component="Microsoft.EntityFrameworkCore.Abstractions.dll" ComponentId="{CE19B279-B7EC-4DBA-984F-ACEE42D504A0}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.EntityFrameworkCore.Abstractions.dll"/>
-    <ROW Component="Microsoft.EntityFrameworkCore.Relational.dll" ComponentId="{72A4F3C6-FF1C-4B73-AD1A-41DB51BAFBAC}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.EntityFrameworkCore.Relational.dll"/>
-    <ROW Component="Microsoft.EntityFrameworkCore.Sqlite.dll" ComponentId="{8B80F8FD-B4AA-4CDC-B937-4B8C224834D6}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.EntityFrameworkCore.Sqlite.dll"/>
-    <ROW Component="Microsoft.EntityFrameworkCore.dll" ComponentId="{71E71939-99B4-4BAF-B846-BA0D52D34692}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.EntityFrameworkCore.dll"/>
-    <ROW Component="Microsoft.Extensions.Caching.Abstractions.dll" ComponentId="{5D6CAC1C-738B-467A-BC94-D84469519A59}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Caching.Abstractions.dll"/>
-    <ROW Component="Microsoft.Extensions.Caching.Memory.dll" ComponentId="{F693DDBA-C038-4DC2-9A67-B1AC521E2567}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Caching.Memory.dll"/>
-    <ROW Component="Microsoft.Extensions.Configuration.Abstractions.dll" ComponentId="{0A5B4399-4853-496B-87D3-408BCE112CE6}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Configuration.Abstractions.dll"/>
-    <ROW Component="Microsoft.Extensions.DependencyInjection.Abstractions.dll" ComponentId="{B1EAAA30-1945-4494-BF9B-1F6380CFF085}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
-    <ROW Component="Microsoft.Extensions.DependencyInjection.dll" ComponentId="{9A5A4F79-1E07-420B-99F1-3699F532AF99}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.DependencyInjection.dll"/>
-    <ROW Component="Microsoft.Extensions.DependencyModel.dll" ComponentId="{6A673080-5F5E-447B-8442-3B57ABAF7426}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.DependencyModel.dll"/>
-    <ROW Component="Microsoft.Extensions.Logging.Abstractions.dll" ComponentId="{93483E9B-0F4D-4DDE-A2F8-6EBB4B01E41F}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Logging.Abstractions.dll"/>
-    <ROW Component="Microsoft.Extensions.Logging.dll" ComponentId="{50171C5C-3F2C-4FF8-8149-EC0AD878E3D9}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Logging.dll"/>
-    <ROW Component="Microsoft.Extensions.Options.dll" ComponentId="{3A8A2FC4-FCAA-4697-A780-E48615422F9F}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Options.dll"/>
-    <ROW Component="Microsoft.Extensions.Primitives.dll" ComponentId="{F479E654-2C10-4546-A343-EECDDF3CBDF1}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Primitives.dll"/>
+    <ROW Component="LazyReader.deps.json" ComponentId="{4F97C6B0-BDED-4779-8E0E-C46335A61F4E}" Directory_="APPDIR" Attributes="0" KeyPath="LazyReader.deps.json" Type="0"/>
+    <ROW Component="LazyReader.dll" ComponentId="{04BE071A-7328-43DD-BA50-D800A717E23F}" Directory_="APPDIR" Attributes="0" KeyPath="LazyReader.dll"/>
+    <ROW Component="LazyReader.exe" ComponentId="{1B5A1B0A-6179-45BA-AB76-46CF16BCF3EB}" Directory_="APPDIR" Attributes="256" KeyPath="LazyReader.exe"/>
+    <ROW Component="Microsoft.Data.Sqlite.dll" ComponentId="{F1AD3043-7B2F-460B-B102-1EEFC6143178}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Data.Sqlite.dll"/>
+    <ROW Component="Microsoft.EntityFrameworkCore.Abstractions.dll" ComponentId="{78EB2E88-19B9-4DF5-9451-C6CFD42371D4}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.EntityFrameworkCore.Abstractions.dll"/>
+    <ROW Component="Microsoft.EntityFrameworkCore.Relational.dll" ComponentId="{F20326DD-F25D-4F03-889F-39BFA7598D16}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.EntityFrameworkCore.Relational.dll"/>
+    <ROW Component="Microsoft.EntityFrameworkCore.Sqlite.dll" ComponentId="{5C252CA3-E380-4852-AD83-C331DE070387}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.EntityFrameworkCore.Sqlite.dll"/>
+    <ROW Component="Microsoft.EntityFrameworkCore.dll" ComponentId="{066EAC01-8B5F-4FA3-81CB-6E83208F3804}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.EntityFrameworkCore.dll"/>
+    <ROW Component="Microsoft.Extensions.Caching.Abstractions.dll" ComponentId="{01281E66-7E52-46EE-A611-4D41D2695FE1}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Caching.Abstractions.dll"/>
+    <ROW Component="Microsoft.Extensions.Caching.Memory.dll" ComponentId="{159A853C-69F4-41A9-9582-741C4631C38B}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Caching.Memory.dll"/>
+    <ROW Component="Microsoft.Extensions.Configuration.Abstractions.dll" ComponentId="{F9337496-63F2-4C54-8825-FAC8B6794177}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Configuration.Abstractions.dll"/>
+    <ROW Component="Microsoft.Extensions.DependencyInjection.Abstractions.dll" ComponentId="{12233FBB-341A-4410-AC6F-ABAA614E520E}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
+    <ROW Component="Microsoft.Extensions.DependencyInjection.dll" ComponentId="{0FD7DA4E-B980-4069-A5A3-5F32A9C81E64}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.DependencyInjection.dll"/>
+    <ROW Component="Microsoft.Extensions.DependencyModel.dll" ComponentId="{DDC1CD31-F943-4E3D-BE1A-4DE22FFD7840}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.DependencyModel.dll"/>
+    <ROW Component="Microsoft.Extensions.Logging.Abstractions.dll" ComponentId="{6FC4CAF1-5BB2-4770-9D35-6D35BD614EB4}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Logging.Abstractions.dll"/>
+    <ROW Component="Microsoft.Extensions.Logging.dll" ComponentId="{F0A03E32-BE3A-4682-99E4-B3506E6D6951}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Logging.dll"/>
+    <ROW Component="Microsoft.Extensions.Options.dll" ComponentId="{CD7C2171-BC6C-4556-8FBD-A91D02FFA8E7}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Options.dll"/>
+    <ROW Component="Microsoft.Extensions.Primitives.dll" ComponentId="{F5D38083-C897-4684-9B6A-5BA8B9A673D2}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.Extensions.Primitives.dll"/>
     <ROW Component="ProductInformation" ComponentId="{282114F9-5233-41A7-BB1D-1069F7EDBCAA}" Directory_="APPDIR" Attributes="260" KeyPath="Version"/>
-    <ROW Component="SQLitePCLRaw.batteries_v2.dll" ComponentId="{BFC44823-A7D7-4D55-8BC0-84F723929FBB}" Directory_="APPDIR" Attributes="0" KeyPath="SQLitePCLRaw.batteries_v2.dll"/>
-    <ROW Component="SQLitePCLRaw.core.dll" ComponentId="{56A79BC4-62F1-4287-A1C7-A1AE1527ACE0}" Directory_="APPDIR" Attributes="0" KeyPath="SQLitePCLRaw.core.dll"/>
-    <ROW Component="SQLitePCLRaw.provider.e_sqlcipher.dll" ComponentId="{62A2D804-0FF5-4A25-B051-90FF5AC43EC1}" Directory_="APPDIR" Attributes="0" KeyPath="SQLitePCLRaw.provider.e_sqlcipher.dll"/>
-    <ROW Component="SQLitePCLRaw.provider.e_sqlite3.dll" ComponentId="{55D4C9E6-EBA2-4DF2-AD48-1AD3B2255398}" Directory_="APPDIR" Attributes="0" KeyPath="SQLitePCLRaw.provider.e_sqlite3.dll"/>
-    <ROW Component="UtfUnknown.dll" ComponentId="{094F773D-7404-4F9E-AA74-EF459288FA9B}" Directory_="APPDIR" Attributes="0" KeyPath="UtfUnknown.dll"/>
-    <ROW Component="e_sqlcipher.dll" ComponentId="{39069D82-1B53-41F4-BC93-963BFA0786AD}" Directory_="native_27_Dir" Attributes="0" KeyPath="e_sqlcipher.dll"/>
-    <ROW Component="e_sqlcipher.dll_4" ComponentId="{7041AAF2-E98E-4C9B-B4D5-8BD94C70B273}" Directory_="native_28_Dir" Attributes="256" KeyPath="e_sqlcipher.dll_4"/>
-    <ROW Component="e_sqlcipher.dll_5" ComponentId="{F82332BE-E85A-45F1-8D20-9B850A2EC293}" Directory_="native_29_Dir" Attributes="256" KeyPath="e_sqlcipher.dll_5"/>
-    <ROW Component="e_sqlcipher.dll_6" ComponentId="{15F0762A-5FD0-4BF8-9931-6DB18C3A8343}" Directory_="native_30_Dir" Attributes="0" KeyPath="e_sqlcipher.dll_6"/>
-    <ROW Component="e_sqlite3.dll" ComponentId="{0FD0B998-43D7-4621-9F65-9EC55D7FFD19}" Directory_="native_27_Dir" Attributes="0" KeyPath="e_sqlite3.dll"/>
-    <ROW Component="e_sqlite3.dll_4" ComponentId="{FBE28C3A-9B30-4CD4-94C0-25C1DCD3D38B}" Directory_="native_28_Dir" Attributes="256" KeyPath="e_sqlite3.dll_4"/>
-    <ROW Component="e_sqlite3.dll_5" ComponentId="{AF78A6ED-9EA9-4DF8-A037-0C0BF3FD9C31}" Directory_="native_29_Dir" Attributes="256" KeyPath="e_sqlite3.dll_5"/>
-    <ROW Component="e_sqlite3.dll_6" ComponentId="{42DE9920-064E-4CCE-A761-5D22F5B2A428}" Directory_="native_30_Dir" Attributes="0" KeyPath="e_sqlite3.dll_6"/>
-    <ROW Component="libe_sqlcipher.dylib" ComponentId="{C7F86D97-CD1B-4B62-BB85-79CF361756B7}" Directory_="native_25_Dir" Attributes="0" KeyPath="libe_sqlcipher.dylib" Type="0"/>
-    <ROW Component="libe_sqlcipher.dylib_2" ComponentId="{5191E7B3-CC0D-4D90-8F44-49BF21C3AE2D}" Directory_="native_26_Dir" Attributes="0" KeyPath="libe_sqlcipher.dylib_2" Type="0"/>
-    <ROW Component="libe_sqlcipher.so" ComponentId="{3714F30E-C97E-408E-9B97-78F4BFE296B3}" Directory_="native_Dir" Attributes="0" KeyPath="libe_sqlcipher.so" Type="0"/>
-    <ROW Component="libe_sqlcipher.so_10" ComponentId="{86526E47-1309-4D77-913B-882D1E642799}" Directory_="native_18_Dir" Attributes="0" KeyPath="libe_sqlcipher.so_10" Type="0"/>
-    <ROW Component="libe_sqlcipher.so_11" ComponentId="{06540BF9-90FD-41D5-BD1A-40D145236474}" Directory_="native_19_Dir" Attributes="0" KeyPath="libe_sqlcipher.so_11" Type="0"/>
-    <ROW Component="libe_sqlcipher.so_12" ComponentId="{07924CDE-61CB-4E4F-B5F8-D772707F588D}" Directory_="native_20_Dir" Attributes="0" KeyPath="libe_sqlcipher.so_12" Type="0"/>
-    <ROW Component="libe_sqlcipher.so_13" ComponentId="{05493338-B478-4CEC-952F-5B3AF716480C}" Directory_="native_21_Dir" Attributes="0" KeyPath="libe_sqlcipher.so_13" Type="0"/>
-    <ROW Component="libe_sqlcipher.so_14" ComponentId="{54394816-6EBA-4802-8E64-1B1BF541C261}" Directory_="native_22_Dir" Attributes="0" KeyPath="libe_sqlcipher.so_14" Type="0"/>
-    <ROW Component="libe_sqlcipher.so_15" ComponentId="{18B553DF-F695-4341-B72B-9A0F4F95853C}" Directory_="native_23_Dir" Attributes="0" KeyPath="libe_sqlcipher.so_15" Type="0"/>
-    <ROW Component="libe_sqlcipher.so_16" ComponentId="{B7E8F528-BB60-4D40-A556-A44BAEE4CB44}" Directory_="native_24_Dir" Attributes="0" KeyPath="libe_sqlcipher.so_16" Type="0"/>
-    <ROW Component="libe_sqlcipher.so_9" ComponentId="{FFE3A348-71C8-4A9C-817B-8CDB11B71DE5}" Directory_="native_17_Dir" Attributes="0" KeyPath="libe_sqlcipher.so_9" Type="0"/>
-    <ROW Component="sqlite3.dll" ComponentId="{DDF40588-2DB7-4FD1-B75E-EBBEF9063786}" Directory_="native_31_Dir" Attributes="256" KeyPath="sqlite3.dll"/>
-    <ROW Component="sqlite3.dll_2" ComponentId="{3CC464BE-2338-4EFD-8054-BAA8F2DDEE58}" Directory_="native_32_Dir" Attributes="0" KeyPath="sqlite3.dll_2"/>
+    <ROW Component="SQLitePCLRaw.batteries_v2.dll" ComponentId="{A8F61B62-DD52-4275-9E1C-4ABDBE85C257}" Directory_="APPDIR" Attributes="0" KeyPath="SQLitePCLRaw.batteries_v2.dll"/>
+    <ROW Component="SQLitePCLRaw.core.dll" ComponentId="{ACB5DE7F-E80E-498D-97D5-6D22D8FDF3D5}" Directory_="APPDIR" Attributes="0" KeyPath="SQLitePCLRaw.core.dll"/>
+    <ROW Component="SQLitePCLRaw.provider.e_sqlcipher.dll" ComponentId="{8375CC79-8EA5-4E23-8F53-B296E48F9EF5}" Directory_="APPDIR" Attributes="0" KeyPath="SQLitePCLRaw.provider.e_sqlcipher.dll"/>
+    <ROW Component="SQLitePCLRaw.provider.e_sqlite3.dll" ComponentId="{78B55E16-D1CC-422B-ACA2-9FE4141F9CE4}" Directory_="APPDIR" Attributes="0" KeyPath="SQLitePCLRaw.provider.e_sqlite3.dll"/>
+    <ROW Component="UtfUnknown.dll" ComponentId="{352F6D2A-C885-4F9D-96B3-F0B593D1A325}" Directory_="APPDIR" Attributes="0" KeyPath="UtfUnknown.dll"/>
+    <ROW Component="e_sqlcipher.dll_2" ComponentId="{F95F8FD1-6BE5-48C7-8F7D-BD1D5A1C84B2}" Directory_="native_13_Dir" Attributes="256" KeyPath="e_sqlcipher.dll_2"/>
+    <ROW Component="e_sqlcipher.dll_3" ComponentId="{BDE065FC-BD39-4E08-AB0A-D4744DD26309}" Directory_="native_14_Dir" Attributes="0" KeyPath="e_sqlcipher.dll_3"/>
+    <ROW Component="e_sqlite3.dll_2" ComponentId="{ACABCA82-3FDA-416C-84D0-3A9AED6C56A3}" Directory_="native_13_Dir" Attributes="256" KeyPath="e_sqlite3.dll_2"/>
+    <ROW Component="e_sqlite3.dll_3" ComponentId="{6BCC2203-4FB4-46C7-9090-23956C04991E}" Directory_="native_14_Dir" Attributes="0" KeyPath="e_sqlite3.dll_3"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
     <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
-    <ROW File="libe_sqlcipher.so" Component_="libe_sqlcipher.so" FileName="LIBE_S~1.SO|libe_sqlcipher.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\alpine-x64\native\libe_sqlcipher.so" SelfReg="false"/>
-    <ROW File="libe_sqlite3.so" Component_="libe_sqlcipher.so" FileName="LIBE_S~2.SO|libe_sqlite3.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\alpine-x64\native\libe_sqlite3.so" SelfReg="false"/>
-    <ROW File="libe_sqlcipher.so_9" Component_="libe_sqlcipher.so_9" FileName="LIBE_S~1.SO|libe_sqlcipher.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-arm\native\libe_sqlcipher.so" SelfReg="false"/>
-    <ROW File="libe_sqlite3.so_9" Component_="libe_sqlcipher.so_9" FileName="LIBE_S~2.SO|libe_sqlite3.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-arm\native\libe_sqlite3.so" SelfReg="false"/>
-    <ROW File="libe_sqlcipher.so_10" Component_="libe_sqlcipher.so_10" FileName="LIBE_S~1.SO|libe_sqlcipher.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-arm64\native\libe_sqlcipher.so" SelfReg="false"/>
-    <ROW File="libe_sqlite3.so_10" Component_="libe_sqlcipher.so_10" FileName="LIBE_S~2.SO|libe_sqlite3.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-arm64\native\libe_sqlite3.so" SelfReg="false"/>
-    <ROW File="libe_sqlcipher.so_11" Component_="libe_sqlcipher.so_11" FileName="LIBE_S~1.SO|libe_sqlcipher.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-armel\native\libe_sqlcipher.so" SelfReg="false"/>
-    <ROW File="libe_sqlite3.so_11" Component_="libe_sqlcipher.so_11" FileName="LIBE_S~2.SO|libe_sqlite3.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-armel\native\libe_sqlite3.so" SelfReg="false"/>
-    <ROW File="libe_sqlcipher.so_12" Component_="libe_sqlcipher.so_12" FileName="LIBE_S~1.SO|libe_sqlcipher.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-mips64\native\libe_sqlcipher.so" SelfReg="false"/>
-    <ROW File="libe_sqlite3.so_12" Component_="libe_sqlcipher.so_12" FileName="LIBE_S~2.SO|libe_sqlite3.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-mips64\native\libe_sqlite3.so" SelfReg="false"/>
-    <ROW File="libe_sqlcipher.so_13" Component_="libe_sqlcipher.so_13" FileName="LIBE_S~1.SO|libe_sqlcipher.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-musl-x64\native\libe_sqlcipher.so" SelfReg="false"/>
-    <ROW File="libe_sqlite3.so_13" Component_="libe_sqlcipher.so_13" FileName="LIBE_S~2.SO|libe_sqlite3.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-musl-x64\native\libe_sqlite3.so" SelfReg="false"/>
-    <ROW File="libe_sqlcipher.so_14" Component_="libe_sqlcipher.so_14" FileName="LIBE_S~1.SO|libe_sqlcipher.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-s390x\native\libe_sqlcipher.so" SelfReg="false"/>
-    <ROW File="libe_sqlite3.so_14" Component_="libe_sqlcipher.so_14" FileName="LIBE_S~2.SO|libe_sqlite3.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-s390x\native\libe_sqlite3.so" SelfReg="false"/>
-    <ROW File="libe_sqlcipher.so_15" Component_="libe_sqlcipher.so_15" FileName="LIBE_S~1.SO|libe_sqlcipher.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-x64\native\libe_sqlcipher.so" SelfReg="false"/>
-    <ROW File="libe_sqlite3.so_15" Component_="libe_sqlcipher.so_15" FileName="LIBE_S~2.SO|libe_sqlite3.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-x64\native\libe_sqlite3.so" SelfReg="false"/>
-    <ROW File="libsqlite3.so" Component_="libe_sqlcipher.so_15" FileName="LIBSQL~1.SO|libsqlite3.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-x64\native\libsqlite3.so" SelfReg="false"/>
-    <ROW File="libe_sqlcipher.so_16" Component_="libe_sqlcipher.so_16" FileName="LIBE_S~1.SO|libe_sqlcipher.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-x86\native\libe_sqlcipher.so" SelfReg="false"/>
-    <ROW File="libe_sqlite3.so_16" Component_="libe_sqlcipher.so_16" FileName="LIBE_S~2.SO|libe_sqlite3.so" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\linux-x86\native\libe_sqlite3.so" SelfReg="false"/>
-    <ROW File="libe_sqlcipher.dylib" Component_="libe_sqlcipher.dylib" FileName="LIBE_S~1.DYL|libe_sqlcipher.dylib" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\osx-arm64\native\libe_sqlcipher.dylib" SelfReg="false"/>
-    <ROW File="libe_sqlite3.dylib" Component_="libe_sqlcipher.dylib" FileName="LIBE_S~2.DYL|libe_sqlite3.dylib" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\osx-arm64\native\libe_sqlite3.dylib" SelfReg="false"/>
-    <ROW File="libe_sqlcipher.dylib_2" Component_="libe_sqlcipher.dylib_2" FileName="LIBE_S~1.DYL|libe_sqlcipher.dylib" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\osx-x64\native\libe_sqlcipher.dylib" SelfReg="false"/>
-    <ROW File="libe_sqlite3.dylib_2" Component_="libe_sqlcipher.dylib_2" FileName="LIBE_S~2.DYL|libe_sqlite3.dylib" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\osx-x64\native\libe_sqlite3.dylib" SelfReg="false"/>
-    <ROW File="libsqlite3.dylib" Component_="libe_sqlcipher.dylib_2" FileName="LIBSQL~1.DYL|libsqlite3.dylib" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\osx-x64\native\libsqlite3.dylib" SelfReg="false"/>
-    <ROW File="e_sqlcipher.dll" Component_="e_sqlcipher.dll" FileName="E_SQLC~1.DLL|e_sqlcipher.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\win-arm\native\e_sqlcipher.dll" SelfReg="false"/>
-    <ROW File="e_sqlite3.dll" Component_="e_sqlite3.dll" FileName="E_SQLI~1.DLL|e_sqlite3.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\win-arm\native\e_sqlite3.dll" SelfReg="false"/>
-    <ROW File="e_sqlcipher.dll_4" Component_="e_sqlcipher.dll_4" FileName="E_SQLC~1.DLL|e_sqlcipher.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\win-arm64\native\e_sqlcipher.dll" SelfReg="false"/>
-    <ROW File="e_sqlite3.dll_4" Component_="e_sqlite3.dll_4" FileName="E_SQLI~1.DLL|e_sqlite3.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\win-arm64\native\e_sqlite3.dll" SelfReg="false"/>
-    <ROW File="e_sqlcipher.dll_5" Component_="e_sqlcipher.dll_5" FileName="E_SQLC~1.DLL|e_sqlcipher.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\win-x64\native\e_sqlcipher.dll" SelfReg="false"/>
-    <ROW File="e_sqlite3.dll_5" Component_="e_sqlite3.dll_5" FileName="E_SQLI~1.DLL|e_sqlite3.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\win-x64\native\e_sqlite3.dll" SelfReg="false"/>
-    <ROW File="e_sqlcipher.dll_6" Component_="e_sqlcipher.dll_6" FileName="E_SQLC~1.DLL|e_sqlcipher.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\win-x86\native\e_sqlcipher.dll" SelfReg="false"/>
-    <ROW File="e_sqlite3.dll_6" Component_="e_sqlite3.dll_6" FileName="E_SQLI~1.DLL|e_sqlite3.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\win-x86\native\e_sqlite3.dll" SelfReg="false"/>
-    <ROW File="sqlite3.dll" Component_="sqlite3.dll" FileName="sqlite3.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\win7-x64\native\sqlite3.dll" SelfReg="false"/>
-    <ROW File="sqlite3.dll_2" Component_="sqlite3.dll_2" FileName="sqlite3.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\runtimes\win7-x86\native\sqlite3.dll" SelfReg="false"/>
-    <ROW File="Egorozh.ColorPicker.Core.dll" Component_="Egorozh.ColorPicker.Core.dll" FileName="EGOROZ~1.DLL|Egorozh.ColorPicker.Core.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Egorozh.ColorPicker.Core.dll" SelfReg="false"/>
-    <ROW File="Egorozh.ColorPicker.WPF.Dialog.dll" Component_="Egorozh.ColorPicker.WPF.Dialog.dll" FileName="EGOROZ~2.DLL|Egorozh.ColorPicker.WPF.Dialog.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Egorozh.ColorPicker.WPF.Dialog.dll" SelfReg="false"/>
-    <ROW File="Egorozh.ColorPicker.WPF.dll" Component_="Egorozh.ColorPicker.WPF.dll" FileName="EGOROZ~3.DLL|Egorozh.ColorPicker.WPF.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Egorozh.ColorPicker.WPF.dll" SelfReg="false"/>
-    <ROW File="LazyReader.deps.json" Component_="LazyReader.deps.json" FileName="LAZYRE~1.JSO|LazyReader.deps.json" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\LazyReader.deps.json" SelfReg="false"/>
-    <ROW File="LazyReader.dll" Component_="LazyReader.dll" FileName="LAZYRE~1.DLL|LazyReader.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\LazyReader.dll" SelfReg="false"/>
-    <ROW File="LazyReader.exe" Component_="LazyReader.exe" FileName="LAZYRE~1.EXE|LazyReader.exe" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\LazyReader.exe" SelfReg="false" DigSign="true"/>
-    <ROW File="LazyReader.pdb" Component_="LazyReader.exe" FileName="LAZYRE~1.PDB|LazyReader.pdb" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\LazyReader.pdb" SelfReg="false"/>
-    <ROW File="LazyReader.runtimeconfig.json" Component_="LazyReader.deps.json" FileName="LAZYRE~2.JSO|LazyReader.runtimeconfig.json" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\LazyReader.runtimeconfig.json" SelfReg="false"/>
-    <ROW File="Microsoft.Data.Sqlite.dll" Component_="Microsoft.Data.Sqlite.dll" FileName="MICROS~1.DLL|Microsoft.Data.Sqlite.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.Data.Sqlite.dll" SelfReg="false"/>
-    <ROW File="Microsoft.EntityFrameworkCore.Abstractions.dll" Component_="Microsoft.EntityFrameworkCore.Abstractions.dll" FileName="MICROS~2.DLL|Microsoft.EntityFrameworkCore.Abstractions.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.EntityFrameworkCore.Abstractions.dll" SelfReg="false"/>
-    <ROW File="Microsoft.EntityFrameworkCore.dll" Component_="Microsoft.EntityFrameworkCore.dll" FileName="MICROS~3.DLL|Microsoft.EntityFrameworkCore.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.EntityFrameworkCore.dll" SelfReg="false"/>
-    <ROW File="Microsoft.EntityFrameworkCore.Relational.dll" Component_="Microsoft.EntityFrameworkCore.Relational.dll" FileName="MICROS~4.DLL|Microsoft.EntityFrameworkCore.Relational.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.EntityFrameworkCore.Relational.dll" SelfReg="false"/>
-    <ROW File="Microsoft.EntityFrameworkCore.Sqlite.dll" Component_="Microsoft.EntityFrameworkCore.Sqlite.dll" FileName="MICROS~5.DLL|Microsoft.EntityFrameworkCore.Sqlite.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.EntityFrameworkCore.Sqlite.dll" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.Caching.Abstractions.dll" Component_="Microsoft.Extensions.Caching.Abstractions.dll" FileName="MICROS~6.DLL|Microsoft.Extensions.Caching.Abstractions.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.Extensions.Caching.Abstractions.dll" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.Caching.Memory.dll" Component_="Microsoft.Extensions.Caching.Memory.dll" FileName="MICROS~7.DLL|Microsoft.Extensions.Caching.Memory.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.Extensions.Caching.Memory.dll" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.Configuration.Abstractions.dll" Component_="Microsoft.Extensions.Configuration.Abstractions.dll" FileName="MICROS~8.DLL|Microsoft.Extensions.Configuration.Abstractions.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.Extensions.Configuration.Abstractions.dll" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Component_="Microsoft.Extensions.DependencyInjection.Abstractions.dll" FileName="MICROS~9.DLL|Microsoft.Extensions.DependencyInjection.Abstractions.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.DependencyInjection.dll" Component_="Microsoft.Extensions.DependencyInjection.dll" FileName="MICRO~10.DLL|Microsoft.Extensions.DependencyInjection.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.Extensions.DependencyInjection.dll" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.DependencyModel.dll" Component_="Microsoft.Extensions.DependencyModel.dll" FileName="MICRO~11.DLL|Microsoft.Extensions.DependencyModel.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.Extensions.DependencyModel.dll" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.Logging.Abstractions.dll" Component_="Microsoft.Extensions.Logging.Abstractions.dll" FileName="MICRO~12.DLL|Microsoft.Extensions.Logging.Abstractions.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.Extensions.Logging.Abstractions.dll" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.Logging.dll" Component_="Microsoft.Extensions.Logging.dll" FileName="MICRO~13.DLL|Microsoft.Extensions.Logging.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.Extensions.Logging.dll" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.Options.dll" Component_="Microsoft.Extensions.Options.dll" FileName="MICRO~14.DLL|Microsoft.Extensions.Options.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.Extensions.Options.dll" SelfReg="false"/>
-    <ROW File="Microsoft.Extensions.Primitives.dll" Component_="Microsoft.Extensions.Primitives.dll" FileName="MICRO~15.DLL|Microsoft.Extensions.Primitives.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\Microsoft.Extensions.Primitives.dll" SelfReg="false"/>
-    <ROW File="SQLitePCLRaw.batteries_v2.dll" Component_="SQLitePCLRaw.batteries_v2.dll" FileName="SQLITE~1.DLL|SQLitePCLRaw.batteries_v2.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\SQLitePCLRaw.batteries_v2.dll" SelfReg="false"/>
-    <ROW File="SQLitePCLRaw.core.dll" Component_="SQLitePCLRaw.core.dll" FileName="SQLITE~2.DLL|SQLitePCLRaw.core.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\SQLitePCLRaw.core.dll" SelfReg="false"/>
-    <ROW File="SQLitePCLRaw.provider.e_sqlcipher.dll" Component_="SQLitePCLRaw.provider.e_sqlcipher.dll" FileName="SQLITE~3.DLL|SQLitePCLRaw.provider.e_sqlcipher.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\SQLitePCLRaw.provider.e_sqlcipher.dll" SelfReg="false"/>
-    <ROW File="SQLitePCLRaw.provider.e_sqlite3.dll" Component_="SQLitePCLRaw.provider.e_sqlite3.dll" FileName="SQLITE~4.DLL|SQLitePCLRaw.provider.e_sqlite3.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\SQLitePCLRaw.provider.e_sqlite3.dll" SelfReg="false"/>
-    <ROW File="UtfUnknown.dll" Component_="UtfUnknown.dll" FileName="UTFUNK~1.DLL|UtfUnknown.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows7.0\UtfUnknown.dll" SelfReg="false"/>
+    <ROW File="e_sqlcipher.dll_2" Component_="e_sqlcipher.dll_2" FileName="E_SQLC~1.DLL|e_sqlcipher.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\runtimes\win-x64\native\e_sqlcipher.dll" SelfReg="false"/>
+    <ROW File="e_sqlite3.dll_2" Component_="e_sqlite3.dll_2" FileName="E_SQLI~1.DLL|e_sqlite3.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\runtimes\win-x64\native\e_sqlite3.dll" SelfReg="false"/>
+    <ROW File="e_sqlcipher.dll_3" Component_="e_sqlcipher.dll_3" FileName="E_SQLC~1.DLL|e_sqlcipher.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\runtimes\win-x86\native\e_sqlcipher.dll" SelfReg="false"/>
+    <ROW File="e_sqlite3.dll_3" Component_="e_sqlite3.dll_3" FileName="E_SQLI~1.DLL|e_sqlite3.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\runtimes\win-x86\native\e_sqlite3.dll" SelfReg="false"/>
+    <ROW File="Egorozh.ColorPicker.Core.dll" Component_="Egorozh.ColorPicker.Core.dll" FileName="EGOROZ~1.DLL|Egorozh.ColorPicker.Core.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Egorozh.ColorPicker.Core.dll" SelfReg="false"/>
+    <ROW File="Egorozh.ColorPicker.WPF.Dialog.dll" Component_="Egorozh.ColorPicker.WPF.Dialog.dll" FileName="EGOROZ~2.DLL|Egorozh.ColorPicker.WPF.Dialog.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Egorozh.ColorPicker.WPF.Dialog.dll" SelfReg="false"/>
+    <ROW File="Egorozh.ColorPicker.WPF.dll" Component_="Egorozh.ColorPicker.WPF.dll" FileName="EGOROZ~3.DLL|Egorozh.ColorPicker.WPF.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Egorozh.ColorPicker.WPF.dll" SelfReg="false"/>
+    <ROW File="LazyReader.deps.json" Component_="LazyReader.deps.json" FileName="LAZYRE~1.JSO|LazyReader.deps.json" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\LazyReader.deps.json" SelfReg="false"/>
+    <ROW File="LazyReader.dll" Component_="LazyReader.dll" FileName="LAZYRE~1.DLL|LazyReader.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\LazyReader.dll" SelfReg="false"/>
+    <ROW File="LazyReader.exe" Component_="LazyReader.exe" FileName="LAZYRE~1.EXE|LazyReader.exe" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\LazyReader.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="LazyReader.pdb" Component_="LazyReader.exe" FileName="LAZYRE~1.PDB|LazyReader.pdb" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\LazyReader.pdb" SelfReg="false"/>
+    <ROW File="LazyReader.runtimeconfig.json" Component_="LazyReader.deps.json" FileName="LAZYRE~2.JSO|LazyReader.runtimeconfig.json" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\LazyReader.runtimeconfig.json" SelfReg="false"/>
+    <ROW File="Microsoft.Data.Sqlite.dll" Component_="Microsoft.Data.Sqlite.dll" FileName="MICROS~1.DLL|Microsoft.Data.Sqlite.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.Data.Sqlite.dll" SelfReg="false"/>
+    <ROW File="Microsoft.EntityFrameworkCore.Abstractions.dll" Component_="Microsoft.EntityFrameworkCore.Abstractions.dll" FileName="MICROS~2.DLL|Microsoft.EntityFrameworkCore.Abstractions.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll" SelfReg="false"/>
+    <ROW File="Microsoft.EntityFrameworkCore.dll" Component_="Microsoft.EntityFrameworkCore.dll" FileName="MICROS~3.DLL|Microsoft.EntityFrameworkCore.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.EntityFrameworkCore.dll" SelfReg="false"/>
+    <ROW File="Microsoft.EntityFrameworkCore.Relational.dll" Component_="Microsoft.EntityFrameworkCore.Relational.dll" FileName="MICROS~4.DLL|Microsoft.EntityFrameworkCore.Relational.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.EntityFrameworkCore.Relational.dll" SelfReg="false"/>
+    <ROW File="Microsoft.EntityFrameworkCore.Sqlite.dll" Component_="Microsoft.EntityFrameworkCore.Sqlite.dll" FileName="MICROS~5.DLL|Microsoft.EntityFrameworkCore.Sqlite.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.EntityFrameworkCore.Sqlite.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Caching.Abstractions.dll" Component_="Microsoft.Extensions.Caching.Abstractions.dll" FileName="MICROS~6.DLL|Microsoft.Extensions.Caching.Abstractions.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.Extensions.Caching.Abstractions.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Caching.Memory.dll" Component_="Microsoft.Extensions.Caching.Memory.dll" FileName="MICROS~7.DLL|Microsoft.Extensions.Caching.Memory.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.Extensions.Caching.Memory.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Configuration.Abstractions.dll" Component_="Microsoft.Extensions.Configuration.Abstractions.dll" FileName="MICROS~8.DLL|Microsoft.Extensions.Configuration.Abstractions.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Component_="Microsoft.Extensions.DependencyInjection.Abstractions.dll" FileName="MICROS~9.DLL|Microsoft.Extensions.DependencyInjection.Abstractions.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyInjection.dll" Component_="Microsoft.Extensions.DependencyInjection.dll" FileName="MICRO~10.DLL|Microsoft.Extensions.DependencyInjection.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyModel.dll" Component_="Microsoft.Extensions.DependencyModel.dll" FileName="MICRO~11.DLL|Microsoft.Extensions.DependencyModel.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.Extensions.DependencyModel.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Logging.Abstractions.dll" Component_="Microsoft.Extensions.Logging.Abstractions.dll" FileName="MICRO~12.DLL|Microsoft.Extensions.Logging.Abstractions.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Logging.dll" Component_="Microsoft.Extensions.Logging.dll" FileName="MICRO~13.DLL|Microsoft.Extensions.Logging.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.Extensions.Logging.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Options.dll" Component_="Microsoft.Extensions.Options.dll" FileName="MICRO~14.DLL|Microsoft.Extensions.Options.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.Extensions.Options.dll" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Primitives.dll" Component_="Microsoft.Extensions.Primitives.dll" FileName="MICRO~15.DLL|Microsoft.Extensions.Primitives.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\Microsoft.Extensions.Primitives.dll" SelfReg="false"/>
+    <ROW File="SQLitePCLRaw.batteries_v2.dll" Component_="SQLitePCLRaw.batteries_v2.dll" FileName="SQLITE~1.DLL|SQLitePCLRaw.batteries_v2.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\SQLitePCLRaw.batteries_v2.dll" SelfReg="false"/>
+    <ROW File="SQLitePCLRaw.core.dll" Component_="SQLitePCLRaw.core.dll" FileName="SQLITE~2.DLL|SQLitePCLRaw.core.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\SQLitePCLRaw.core.dll" SelfReg="false"/>
+    <ROW File="SQLitePCLRaw.provider.e_sqlcipher.dll" Component_="SQLitePCLRaw.provider.e_sqlcipher.dll" FileName="SQLITE~3.DLL|SQLitePCLRaw.provider.e_sqlcipher.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\SQLitePCLRaw.provider.e_sqlcipher.dll" SelfReg="false"/>
+    <ROW File="SQLitePCLRaw.provider.e_sqlite3.dll" Component_="SQLitePCLRaw.provider.e_sqlite3.dll" FileName="SQLITE~4.DLL|SQLitePCLRaw.provider.e_sqlite3.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\SQLitePCLRaw.provider.e_sqlite3.dll" SelfReg="false"/>
+    <ROW File="UtfUnknown.dll" Component_="UtfUnknown.dll" FileName="UTFUNK~1.DLL|UtfUnknown.dll" Attributes="0" SourcePath="..\LazyReader\bin\Release\net6.0-windows\UtfUnknown.dll" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.custcomp.MsiShortcutPropertyComponent">
-    <ROW MsiShortcutProperty="UninstallProductNameProductVersion1" Shortcut_="UninstallProductNameProductVersion" PropertyKey="[AiPreventAutoPin]" PropVariantValue="1"/>
-    <ROW MsiShortcutProperty="LazyReader_11" Shortcut_="LazyReader_1" PropertyKey="[AiPreventAutoPin]" PropVariantValue="1"/>
     <ROW MsiShortcutProperty="LazyReader1" Shortcut_="LazyReader" PropertyKey="[AiPreventAutoPin]" PropVariantValue="1"/>
+    <ROW MsiShortcutProperty="LazyReader_11" Shortcut_="LazyReader_1" PropertyKey="[AiPreventAutoPin]" PropVariantValue="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -316,27 +238,6 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
     <ROW Feature_="MainFeature" Component_="APPDIR"/>
     <ROW Feature_="MainFeature" Component_="ProductInformation"/>
-    <ROW Feature_="MainFeature" Component_="libe_sqlcipher.so"/>
-    <ROW Feature_="MainFeature" Component_="libe_sqlcipher.so_9"/>
-    <ROW Feature_="MainFeature" Component_="libe_sqlcipher.so_10"/>
-    <ROW Feature_="MainFeature" Component_="libe_sqlcipher.so_11"/>
-    <ROW Feature_="MainFeature" Component_="libe_sqlcipher.so_12"/>
-    <ROW Feature_="MainFeature" Component_="libe_sqlcipher.so_13"/>
-    <ROW Feature_="MainFeature" Component_="libe_sqlcipher.so_14"/>
-    <ROW Feature_="MainFeature" Component_="libe_sqlcipher.so_15"/>
-    <ROW Feature_="MainFeature" Component_="libe_sqlcipher.so_16"/>
-    <ROW Feature_="MainFeature" Component_="libe_sqlcipher.dylib"/>
-    <ROW Feature_="MainFeature" Component_="libe_sqlcipher.dylib_2"/>
-    <ROW Feature_="MainFeature" Component_="e_sqlcipher.dll"/>
-    <ROW Feature_="MainFeature" Component_="e_sqlite3.dll"/>
-    <ROW Feature_="MainFeature" Component_="e_sqlcipher.dll_4"/>
-    <ROW Feature_="MainFeature" Component_="e_sqlite3.dll_4"/>
-    <ROW Feature_="MainFeature" Component_="e_sqlcipher.dll_5"/>
-    <ROW Feature_="MainFeature" Component_="e_sqlite3.dll_5"/>
-    <ROW Feature_="MainFeature" Component_="e_sqlcipher.dll_6"/>
-    <ROW Feature_="MainFeature" Component_="e_sqlite3.dll_6"/>
-    <ROW Feature_="MainFeature" Component_="sqlite3.dll"/>
-    <ROW Feature_="MainFeature" Component_="sqlite3.dll_2"/>
     <ROW Feature_="MainFeature" Component_="Egorozh.ColorPicker.Core.dll"/>
     <ROW Feature_="MainFeature" Component_="Egorozh.ColorPicker.WPF.Dialog.dll"/>
     <ROW Feature_="MainFeature" Component_="Egorozh.ColorPicker.WPF.dll"/>
@@ -349,6 +250,10 @@
     <ROW Feature_="MainFeature" Component_="Microsoft.EntityFrameworkCore.Relational.dll"/>
     <ROW Feature_="MainFeature" Component_="Microsoft.EntityFrameworkCore.Sqlite.dll"/>
     <ROW Feature_="MainFeature" Component_="Microsoft.Extensions.Caching.Abstractions.dll"/>
+    <ROW Feature_="MainFeature" Component_="e_sqlcipher.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="e_sqlite3.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="e_sqlcipher.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="e_sqlite3.dll_3"/>
     <ROW Feature_="MainFeature" Component_="Microsoft.Extensions.Caching.Memory.dll"/>
     <ROW Feature_="MainFeature" Component_="Microsoft.Extensions.Configuration.Abstractions.dll"/>
     <ROW Feature_="MainFeature" Component_="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
@@ -378,20 +283,20 @@
     <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
-    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102" Builds="DefaultBuild"/>
     <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
     <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
     <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
     <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
     <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
-    <ROW Action="AI_AppSearchEx" Sequence="103"/>
-    <ROW Action="AI_DetectSoftware" Sequence="102"/>
+    <ROW Action="AI_DetectSoftware" Sequence="103"/>
     <ROW Action="AI_SelectAutoPinOption" Condition="VersionNT &gt; 601" Sequence="1402"/>
     <ROW Action="AI_GetArpIconPath" Sequence="1401"/>
     <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
     <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
     <ROW Action="AI_ExtractFiles" Sequence="1399" Builds="DefaultBuild"/>
     <ROW Action="AI_DATA_SETTER" Sequence="1398"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
@@ -400,8 +305,8 @@
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
     <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="103"/>
-    <ROW Action="AI_AppSearchEx" Sequence="102"/>
-    <ROW Action="AI_DetectSoftware" Sequence="101"/>
+    <ROW Action="AI_DetectSoftware" Sequence="102"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
     <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
@@ -451,9 +356,9 @@
     <ROW Registry="Windows" Root="-1" Key="Software\Microsoft\Windows" Name="\"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
-    <ROW Shortcut="LazyReader" Directory_="DesktopFolder" Name="LAZYRE~1|LazyReader" Component_="LazyReader.exe" Target="[#LazyReader.exe]" Hotkey="0" Icon_="favicon.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
-    <ROW Shortcut="LazyReader_1" Directory_="LazyReader_Dir" Name="LAZYRE~1|LazyReader" Component_="LazyReader.exe" Target="[#LazyReader.exe]" Hotkey="0" Icon_="favicon.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
-    <ROW Shortcut="UninstallProductNameProductVersion" Directory_="LazyReader_Dir" Name="UNINST~1|Uninstall [|ProductName]" Component_="UtfUnknown.dll" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Hotkey="0" Icon_="favicon.exe" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="LazyReader" Directory_="LazyReader_Dir" Name="LAZYRE~1|LazyReader" Component_="LazyReader.exe" Target="[#LazyReader.exe]" Hotkey="0" Icon_="favicon.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="LazyReader_1" Directory_="DesktopFolder" Name="LAZYRE~1|LazyReader" Component_="LazyReader.exe" Target="[#LazyReader.exe]" Hotkey="0" Icon_="favicon.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="UninstallProductName" Directory_="LazyReader_Dir" Name="UNINST~1|Uninstall [|ProductName]" Component_="e_sqlite3.dll_2" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Hotkey="0" Icon_="favicon.exe" IconIndex="0" ShowCmd="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
     <ATTRIBUTE name="UsedTheme" value="classic"/>
@@ -463,7 +368,7 @@
     <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
-    <ROW PrereqKey="FAC9C433D3044829E6669A2C6FF54E6" DisplayName=".NET Desktop Runtime 6.0.2 x64" VersionMin="6.0" SetupFileUrl="https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/runtime-6.0.5-windows-x64-installer" Location="1" ExactSize="0" WinNTVersions="Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86/Windows 10 x86" WinNT64Versions="Windows Vista x64, Windows Server 2008 x64, Windows 7 RTM x64, Windows Server 2008 R2 x64, Windows 8 x64, Windows Server 2012 x64, Windows 10 version 1507 x64, Windows 10 version 1511 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" TargetName="NET6.0"/>
+    <ROW PrereqKey="FAC9C433D3044829E6669A2C6FF54E6" DisplayName=".NET Desktop Runtime 6.0.2 x64" VersionMin="6.0" SetupFileUrl="https://download.visualstudio.microsoft.com/download/pr/efa32b7a-6eec-4d97-9cdc-c7336a29a749/3df4296170397cf60884dae1be3d103b/windowsdesktop-runtime-6.0.2-win-x64.exe" Location="1" ExactSize="57296456" WinNTVersions="Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86/Windows 10 x86" WinNT64Versions="Windows Vista x64, Windows Server 2008 x64, Windows 7 RTM x64, Windows Server 2008 R2 x64, Windows 8 x64, Windows Server 2012 x64, Windows 10 version 1507 x64, Windows 10 version 1511 x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" MD5="ce032ed3b098ceb4054eaf9c9158e2f5" TargetName=".NET 6.0"/>
     <ATTRIBUTE name="PrereqsOrder" value="FAC9C433D3044829E6669A2C6FF54E6"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">

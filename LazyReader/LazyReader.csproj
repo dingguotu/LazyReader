@@ -2,11 +2,13 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
+    <UseWPF>True</UseWPF>
     <ApplicationIcon>Images\favicon_io\favicon.ico</ApplicationIcon>
     <PackageIcon>android-chrome-192x192.png</PackageIcon>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+	<PlatformTarget>anycpu</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>

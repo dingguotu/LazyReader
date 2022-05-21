@@ -31,7 +31,7 @@ namespace LazyReader.ViewModels
             set
             {
                 width = value;
-                OnPropertyChanged("Width", null, null);
+                OnPropertyChanged("Width", null);
             }
         }
 
@@ -41,7 +41,7 @@ namespace LazyReader.ViewModels
             set
             {
                 height = value;
-                OnPropertyChanged("Height", null, null);
+                OnPropertyChanged("Height", null);
             }
         }
 
@@ -51,7 +51,7 @@ namespace LazyReader.ViewModels
             set
             {
                 lineHeight = value;
-                OnPropertyChanged("LineHeight", GetResizeEvent(), null);
+                OnPropertyChanged("LineHeight", GetResizeEvent());
             }
         }
 
@@ -61,7 +61,7 @@ namespace LazyReader.ViewModels
             set
             {
                 opacity = value;
-                OnPropertyChanged("Opacity", null, null);
+                OnPropertyChanged("Opacity", null);
             }
         }
 
@@ -71,7 +71,7 @@ namespace LazyReader.ViewModels
             set
             {
                 backgroudOpacity = value;
-                OnPropertyChanged("BackgroudOpacity", null, null);
+                OnPropertyChanged("BackgroudOpacity", null);
             }
         }
 
@@ -81,7 +81,7 @@ namespace LazyReader.ViewModels
             set
             {
                 fontSize = value;
-                OnPropertyChanged("FontSize", GetResizeEvent(), null);
+                OnPropertyChanged("FontSize", GetResizeEvent());
             }
         }
 
@@ -91,7 +91,7 @@ namespace LazyReader.ViewModels
             set
             {
                 fontFamily = value;
-                OnPropertyChanged("FontFamily", GetResizeEvent(), null);
+                OnPropertyChanged("FontFamily", GetResizeEvent());
             }
         }
 
@@ -102,7 +102,7 @@ namespace LazyReader.ViewModels
             set
             {
                 fontWeight = value;
-                OnPropertyChanged("FontWeight", GetResizeEvent(), null);
+                OnPropertyChanged("FontWeight", GetResizeEvent());
             }
         }
 
@@ -113,7 +113,7 @@ namespace LazyReader.ViewModels
             set
             {
                 fontStyle = value;
-                OnPropertyChanged("FontStyle", GetResizeEvent(), null);
+                OnPropertyChanged("FontStyle", GetResizeEvent());
             }
         }
 
@@ -147,7 +147,7 @@ namespace LazyReader.ViewModels
             set
             {
                 brush = value.ToString();
-                OnPropertyChanged("Brush", null, null);
+                OnPropertyChanged("Brush", null);
             }
         }
 
@@ -160,7 +160,6 @@ namespace LazyReader.ViewModels
             set
             {
                 textDisplay = value;
-                OnPropertyChanged("TextDisplay", null, GetTextDisplayChangeEvent());
                 SaveToFile(this);
             }
         }
@@ -194,8 +193,6 @@ namespace LazyReader.ViewModels
         #region 属性变化通知事件
         public delegate void ResizeWindowEventHandle();
         public event ResizeWindowEventHandle? ResizeEvent;
-        public delegate void TextDisplayChangeEventHandle();
-        public event TextDisplayChangeEventHandle? TextDisplayChangeEvent;
         public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>
@@ -215,12 +212,7 @@ namespace LazyReader.ViewModels
             return ResizeEvent;
         }
 
-        public TextDisplayChangeEventHandle? GetTextDisplayChangeEvent()
-        {
-            return TextDisplayChangeEvent;
-        }
-
-        public void OnPropertyChanged(string PropertyName, ResizeWindowEventHandle? resizeEvent, TextDisplayChangeEventHandle? textDisplayChangeEvent)
+        public void OnPropertyChanged(string PropertyName, ResizeWindowEventHandle? resizeEvent)
         {
             PropertyChangedEventArgs e = new PropertyChangedEventArgs(PropertyName);
             if (PropertyChanged != null)
@@ -231,11 +223,6 @@ namespace LazyReader.ViewModels
             if (resizeEvent != null)
             {
                 resizeEvent();
-            }
-
-            if (textDisplayChangeEvent != null)
-            {
-                textDisplayChangeEvent();
             }
         }
         #endregion

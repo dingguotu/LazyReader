@@ -94,6 +94,7 @@ namespace LazyReader
         {
             this.Owner.ShowInTaskbar = BookWindow.BookWindowStyle.ShowInTaskbar;
             this.Owner.Topmost = BookWindow.BookWindowStyle.Topmost;
+            (this.Owner as BookWindow).ReloadMouseEvent();
         }
 
         private void BtnChangeIndex_Click(object sender, RoutedEventArgs e)
