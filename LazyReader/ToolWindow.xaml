@@ -11,31 +11,35 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         ShowInTaskbar="False"
-        Title="" Height="450" Width="230" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="" Height="350" Width="230" MouseLeftButtonDown="Window_MouseLeftButtonDown" Closed="Window_Closed">
     <Window.Resources>
         <converters:Enum2BoolConverter x:Key="EnumToBoolConverter"/>
     </Window.Resources>
     <Grid>
         <Button Name="BtnMain" Content="返回首页" HorizontalContentAlignment="Left" Margin="10,10,10,0" BorderBrush="{x:Null}" Background="{x:Null}" Height="19" VerticalAlignment="Top" Click="BtnMain_Click"/>
-        <Separator Margin="10,34,0,0" Height="1" VerticalAlignment="Top"/>
+        <Separator Margin="10,34,0,0" Height="1" VerticalAlignment="Top" Background="#FFAAC3ED"/>
 
-        <Label Content="当前在读书籍的" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Foreground="#FF8A5947"/>
+        <Label Content="当前在读书籍的" HorizontalAlignment="Left" Margin="7,40,0,0" VerticalAlignment="Top" Foreground="#FF8A5947"/>
         <Button Name="BtnChapter" Content="> 章节目录" HorizontalContentAlignment="Left" Margin="10,65,10,0" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF8A5947" Height="19" VerticalAlignment="Top" Click="BtnChapter_Click"/>
         <Button Name="BtnReadLog" Content="> 阅读历史" HorizontalContentAlignment="Left" Margin="10,84,10,0" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF8A5947" Height="19" VerticalAlignment="Top" Click="BtnReadLog_Click"/>
-        <Separator Margin="10,104,0,0" Height="1" VerticalAlignment="Top"/>
+        <Label Content="> 阅读位置：" HorizontalAlignment="Left" Margin="7,101,0,0" VerticalAlignment="Top" Foreground="#FF8A5947"/>
+        <TextBox Text="{Binding currentIndex, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ToolWindow}}}" HorizontalAlignment="Left" Margin="90,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+        <Button Name="BtnChangeIndex" Content=" 确定 " HorizontalAlignment="Left" Margin="145,104,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF8A5947" Click="BtnChangeIndex_Click"/>
+        <Button Name="BtnSearch" Content="内容搜索" HorizontalContentAlignment="Left" Margin="10,123,10,0" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF8A5947" Height="19" VerticalAlignment="Top" Click="BtnSearch_Click"/>
+        <Separator Margin="10,145,0,0" Height="1" VerticalAlignment="Top" Background="#FFAAC3ED"/>
 
-        <Button Content="文字设置：字体、大小、透明" HorizontalContentAlignment="Left" Margin="10,105,10,0" BorderBrush="{x:Null}" Background="{x:Null}" Height="19" VerticalAlignment="Top" Click="Button_Click"/>
-        <Separator Margin="10,124,0,0" Height="1" VerticalAlignment="Top"/>
+        <Button Content="文字设置：字体、大小、透明" HorizontalContentAlignment="Left" Margin="10,146,10,0" BorderBrush="{x:Null}" Background="{x:Null}" Height="19" VerticalAlignment="Top" Click="Button_Click"/>
+        <Separator Margin="10,165,0,0" Height="1" VerticalAlignment="Top" Background="#FFAAC3ED"/>
 
-        <RadioButton Content="保持文字一直显示" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" GroupName="group1" IsChecked="{Binding TextDisplay, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static enums:TextDisplayEnum.Normal}}"/>
-        <RadioButton Content="鼠标离开时文字隐藏，移上时显示" HorizontalAlignment="Left" Margin="10,149,0,0" VerticalAlignment="Top" GroupName="group1" IsChecked="{Binding TextDisplay, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static enums:TextDisplayEnum.MoveUp}}"/>
-        <RadioButton Content="鼠标离开时文字隐藏，双击时显示" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" GroupName="group1" IsChecked="{Binding TextDisplay, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static enums:TextDisplayEnum.Dblclick}}"/>
-        <Separator Margin="10,187,0,0" Height="1" VerticalAlignment="Top"/>
-        <CheckBox Content="显示在状态栏" IsChecked="{Binding ShowInTaskbar}" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="显示在顶部" IsChecked="{Binding Topmost}" HorizontalAlignment="Left" Margin="10,213,0,0" VerticalAlignment="Top"/>
-        <Separator Margin="10,233,0,0" Height="1" VerticalAlignment="Top"/>
+        <RadioButton Content="保持文字一直显示" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" GroupName="group1" IsChecked="{Binding TextDisplay, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static enums:TextDisplayEnum.Normal}}"/>
+        <RadioButton Content="鼠标离开时文字隐藏，移上时显示" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" GroupName="group1" IsChecked="{Binding TextDisplay, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static enums:TextDisplayEnum.MoveUp}}"/>
+        <RadioButton Content="鼠标离开时文字隐藏，双击时显示" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" GroupName="group1" IsChecked="{Binding TextDisplay, Converter={StaticResource EnumToBoolConverter}, ConverterParameter={x:Static enums:TextDisplayEnum.Dblclick}}"/>
+        <Separator Margin="10,228,0,0" Height="1" VerticalAlignment="Top" Background="#FFAAC3ED"/>
 
-        <Separator Margin="10,0,0,34" Height="1" VerticalAlignment="Bottom"/>
+        <CheckBox Name="ChkShowInTaskbar" Content="显示在状态栏" IsChecked="{Binding ShowInTaskbar}" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top"/>
+        <CheckBox Name="ChkTopmost" Content="显示在顶部" IsChecked="{Binding Topmost}" HorizontalAlignment="Left" Margin="10,254,0,0" VerticalAlignment="Top"/>
+
+        <Separator Margin="10,0,0,34" Height="1" VerticalAlignment="Bottom" Background="#FFAAC3ED"/>
         <Button Name="BtnClose" Content="退出" HorizontalContentAlignment="Left" Margin="10,0,10,10" BorderBrush="{x:Null}" Background="{x:Null}" Height="19" VerticalAlignment="Bottom" Click="BtnClose_Click"/>
     </Grid>
 </Window>

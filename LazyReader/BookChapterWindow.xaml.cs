@@ -21,6 +21,7 @@ namespace LazyReader
     public partial class BookChapterWindow : Window
     {
         public static string BookName { get; set; }
+        public static string BaseDomain { get; set; }
         public static Guid BookId { get; set; }
         
         private static LazyReaderContext context = LazyReaderContext.Instance;
@@ -49,9 +50,8 @@ namespace LazyReader
             if (ListChapter.SelectedItem == null)
                 return;
             BookChapter chapter = (BookChapter)ListChapter.SelectedItem;
-            Book? book = context.Book.FirstOrDefault(x => x.Id.Equals(chapter.BookId));
             BookWindow bookWindow = (BookWindow)this.Owner;
-            bookWindow.GoToIndex(chapter.Index, book?.BaseDomain, chapter.Path);
+            bookWindow.GoToIndex(chapter.Index, BaseDomain, chapter.Path);
             this.Close();
         }
     }

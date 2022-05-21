@@ -33,9 +33,9 @@ namespace LazyReader
 
         private int rowCharCount = 0;
         private int pageCharCount = 0;
-        private int curPageBlockIndex = 0;
+        public int curPageBlockIndex = 0;
         private int nextPageBlockIndex = 0;
-        private string bookText = string.Empty;
+        public string bookText = string.Empty;
         private int bookSize = 0;
 
         public BookWindow()
@@ -65,6 +65,7 @@ namespace LazyReader
             toolWindow.Left = point.X;
             toolWindow.Owner = this;
             ToolWindow.book = book;
+            ToolWindow.currentIndex = curPageBlockIndex.ToString();
             toolWindow.Show();
         }
 
@@ -150,7 +151,7 @@ namespace LazyReader
                 return;
             }
             List<BookChapter> bookChapters = new List<BookChapter>();
-            Regex reg = new Regex("\\s第(.{0,20})(章|回|话)(.*?)" + Environment.NewLine);
+            Regex reg = new Regex("\\s第(.{0,20})(章|篇)(.*?)" + Environment.NewLine);
             MatchCollection mcs = reg.Matches(bookText);
             foreach (Match mc in mcs)
             {
@@ -168,7 +169,7 @@ namespace LazyReader
         /// <summary>
         /// 重新加载文字
         /// </summary>
-        private void ReloadBlockText()
+        public void ReloadBlockText()
         {
             nextPageBlockIndex = curPageBlockIndex;
             rowCharCount = (int)(this.ActualWidth / textBox.FontSize);

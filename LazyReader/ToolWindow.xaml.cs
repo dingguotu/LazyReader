@@ -22,7 +22,7 @@ namespace LazyReader
     public partial class ToolWindow : Window
     {
         public static Book book { get; set; }
-
+        public static string currentIndex { get; set; }
 
         public ToolWindow()
         {
@@ -51,6 +51,7 @@ namespace LazyReader
         private void BtnChapter_Click(object sender, RoutedEventArgs e)
         {
             BookChapterWindow.BookName = book.Name;
+            BookChapterWindow.BaseDomain = book.BaseDomain;
             BookChapterWindow.BookId = book.Id;
             BookChapterWindow bookChapterWindow = new BookChapterWindow();
             bookChapterWindow.Topmost = true;
@@ -86,6 +87,40 @@ namespace LazyReader
             styleWindow.Left = this.Left;
             styleWindow.Owner = this.Owner;
             styleWindow.Show();
+            this.Close();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Owner.ShowInTaskbar = BookWindow.BookWindowStyle.ShowInTaskbar;
+            this.Owner.Topmost = BookWindow.BookWindowStyle.Topmost;
+        }
+
+        private void BtnChangeIndex_Click(object sender, RoutedEventArgs e)
+        {
+            var owner = (BookWindow)this.Owner;
+            owner.curPageBlockIndex = int.Parse(currentIndex);
+            owner.ReloadBlockText();
+            this.Close();
+        }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            if (book.BaseDomain != "本地文件")
+            {
+                MessageBox.Show("搜索功能只支持本地文件");
+                return;
+            }
+            BookSearchWindow.BookName = book.Name;
+            BookSearchWindow.BaseDomain = book.BaseDomain;
+            BookSearchWindow.BookId = book.Id;
+            BookSearchWindow bookSearchWindow = new BookSearchWindow();
+            bookSearchWindow.Topmost = true;
+            bookSearchWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            bookSearchWindow.Top = this.Top;
+            bookSearchWindow.Left = this.Left;
+            bookSearchWindow.Owner = this.Owner;
+            bookSearchWindow.Show();
             this.Close();
         }
     }
