@@ -3,18 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyReader", "LazyReader\LazyReader.csproj", "{2AE1160B-8F4A-468A-BC07-E91F8B64BDA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LazyReader", "LazyReader\LazyReader.csproj", "{2AE1160B-8F4A-468A-BC07-E91F8B64BDA5}"
+EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Setup", "Setup\Setup.aiproj", "{81F6D1DF-64A3-41EC-9622-B137DC7E9244}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AE1160B-8F4A-468A-BC07-E91F8B64BDA5}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE1160B-8F4A-468A-BC07-E91F8B64BDA5}.All|Any CPU.Build.0 = Release|Any CPU
 		{2AE1160B-8F4A-468A-BC07-E91F8B64BDA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2AE1160B-8F4A-468A-BC07-E91F8B64BDA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AE1160B-8F4A-468A-BC07-E91F8B64BDA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AE1160B-8F4A-468A-BC07-E91F8B64BDA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81F6D1DF-64A3-41EC-9622-B137DC7E9244}.All|Any CPU.ActiveCfg = All
+		{81F6D1DF-64A3-41EC-9622-B137DC7E9244}.All|Any CPU.Build.0 = All
+		{81F6D1DF-64A3-41EC-9622-B137DC7E9244}.Debug|Any CPU.ActiveCfg = All
+		{81F6D1DF-64A3-41EC-9622-B137DC7E9244}.Debug|Any CPU.Build.0 = All
+		{81F6D1DF-64A3-41EC-9622-B137DC7E9244}.Release|Any CPU.ActiveCfg = All
+		{81F6D1DF-64A3-41EC-9622-B137DC7E9244}.Release|Any CPU.Build.0 = All
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
